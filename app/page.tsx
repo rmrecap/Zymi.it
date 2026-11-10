@@ -38,6 +38,12 @@ export default function Home() {
     sameAs: [
       "https://aelbd.net",
       "https://github.com/rmrecap/Zymi.it",
+      "https://www.facebook.com/zymiglobal",
+      "https://www.linkedin.com/company/apparelemporium",
+      "https://www.instagram.com/zymi.it",
+      "https://twitter.com/zymiglobal",
+      "https://x.com/zymiglobal",
+      "https://www.youtube.com/@zymiglobal",
     ],
     contactPoint: [
       {
@@ -81,6 +87,16 @@ export default function Home() {
     url: "https://zymi.it",
     telephone: "+880-1700-000000",
     priceRange: "$$",
+    sameAs: [
+      "https://aelbd.net",
+      "https://github.com/rmrecap/Zymi.it",
+      "https://www.facebook.com/zymiglobal",
+      "https://www.linkedin.com/company/apparelemporium",
+      "https://www.instagram.com/zymi.it",
+      "https://twitter.com/zymiglobal",
+      "https://x.com/zymiglobal",
+      "https://www.youtube.com/@zymiglobal",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: "House 12, Road 4, Sector 3, Uttara",
