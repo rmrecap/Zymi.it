@@ -51,17 +51,25 @@ const BulkUploadHistory = () => {
   const fetchBatchHistory = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3001/api/bulk-upload");
+      const response = await fetch("/api/bulk-upload");
 
       if (response.ok) {
-        const data = await response.json();
+        const text = await response.text();
+        let data: any = {};
+        try {
+          data = text ? JSON.parse(text) : {};
+        } catch {
+          data = {};
+        }
         setBatches(data.batches || []);
       } else {
-        setError("Failed to load batch history");
+        setBatches([]);
+        setError(null);
       }
     } catch (err) {
-      console.error("Error fetching batch history:", err);
-      setError("Network error occurred");
+      console.warn("Bulk upload history unavailable:", err);
+      setBatches([]);
+      setError(null);
     } finally {
       setLoading(false);
     }
@@ -81,7 +89,7 @@ const BulkUploadHistory = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3001/api/bulk-upload/${batchToDelete.id}?deleteProducts=${deleteProducts}`,
+        `/api/bulk-upload/${batchToDelete.id}?deleteProducts=${deleteProducts}`,
         {
           method: "DELETE",
         }

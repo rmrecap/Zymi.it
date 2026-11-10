@@ -18,13 +18,27 @@ const AdminOrders = () => {
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchOrders = async () => {
-      const response = await apiClient.get("/api/orders");
-      const data = await response.json();
-      
-      setOrders(data?.orders);
+      try {
+        const response = await apiClient.get("/api/orders");
+        if (response.ok) {
+          const data = await response.json();
+          if (isMounted) {
+            setOrders(Array.isArray(data) ? data : (data?.orders || []));
+          }
+        } else {
+          if (isMounted) setOrders([]);
+        }
+      } catch (err) {
+        console.warn("Failed to fetch orders:", err);
+        if (isMounted) setOrders([]);
+      }
     };
     fetchOrders();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (

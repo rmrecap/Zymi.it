@@ -21,13 +21,25 @@ const DashboardProductTable = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    apiClient.get("/api/products?mode=admin", {cache: "no-store"})
-      .then((res) => {
-        return res.json();
+    let isMounted = true;
+    apiClient.get("/api/products?mode=admin", { cache: "no-store" })
+      .then(async (res) => {
+        if (!res.ok) return [];
+        return await res.json();
       })
       .then((data) => {
-        setProducts(data);
+        if (isMounted) {
+          setProducts(Array.isArray(data) ? data : (data?.products || []));
+        }
+      })
+      .catch((err) => {
+        console.warn("Failed to fetch admin products:", err);
+        if (isMounted) setProducts([]);
       });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
