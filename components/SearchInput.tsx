@@ -17,7 +17,14 @@ const SearchInput = () => {
   };
 
   return (
-    <form className="relative w-full" onSubmit={searchProducts}>
+    <form
+      className="relative w-full"
+      onSubmit={searchProducts}
+      toolname="search_products"
+      tooldescription="Search products, digital assets, tech packs, and apparel manufacturing items on ZYMI Global"
+      data-toolname="search_products"
+      data-tooldescription="Search products, digital assets, tech packs, and apparel manufacturing items on ZYMI Global"
+    >
       <div className="relative flex items-center">
         <input
           type="text"

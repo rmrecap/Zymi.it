@@ -347,6 +347,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 8. Declarative WebMCP Annotated Forms for In-Browser AI Agents */}
+      <div className="sr-only" aria-hidden="true">
+        <form
+          id="webmcp-search-form"
+          action="/search"
+          method="GET"
+          toolname="search_products"
+          tooldescription="Search products, digital assets, and RMG manufacturing items on ZYMI Global"
+          data-toolname="search_products"
+          data-tooldescription="Search products, digital assets, and RMG manufacturing items on ZYMI Global"
+        >
+          <input type="text" name="search" placeholder="Search query" defaultValue="" />
+          <button type="submit">Search</button>
+        </form>
+
+        <form
+          id="webmcp-calculator-form"
+          action="/tools/fabric-consumption-calculator"
+          method="GET"
+          toolname="calculate_fabric_consumption"
+          tooldescription="Calculate knit fabric consumption in kilograms per dozen for t-shirts, polos, or hoodies"
+          data-toolname="calculate_fabric_consumption"
+          data-tooldescription="Calculate knit fabric consumption in kilograms per dozen for t-shirts, polos, or hoodies"
+        >
+          <input type="number" name="length" placeholder="Length cm" defaultValue={70} />
+          <input type="number" name="chest" placeholder="Chest cm" defaultValue={50} />
+          <input type="number" name="gsm" placeholder="GSM" defaultValue={180} />
+          <button type="submit">Calculate</button>
+        </form>
+
+        <form
+          id="webmcp-sourcing-form"
+          action="/b2b-apparel"
+          method="GET"
+          toolname="get_b2b_sourcing_quote"
+          tooldescription="Request Apparel Emporium factory FOB price estimations for bulk apparel orders"
+          data-toolname="get_b2b_sourcing_quote"
+          data-tooldescription="Request Apparel Emporium factory FOB price estimations for bulk apparel orders"
+        >
+          <input type="text" name="category" placeholder="t-shirt, hoodie, polo, denim" defaultValue="t-shirt" />
+          <input type="number" name="quantity" placeholder="Quantity" defaultValue={500} />
+          <button type="submit">Get Quote</button>
+        </form>
+      </div>
+
       {/* 1. 3D Hero Section & 7-Item Category Launchpad */}
       <Hero3DSection />
 
