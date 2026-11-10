@@ -142,13 +142,22 @@ export default function FeaturedDigitalProducts() {
           </p>
         </div>
 
-        <Link
-          href="/shop?type=DIGITAL_DOWNLOAD"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 transition group self-start sm:self-auto"
-        >
-          <span>View All 200+ Live Assets</span>
-          <FaArrowRight className="text-[10px] group-hover:translate-x-1 transition-transform" />
-        </Link>
+        <div className="flex items-center gap-3 self-start sm:self-auto">
+          <Link
+            href="/pricing"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
+          >
+            <span>Pricing Guide</span>
+          </Link>
+          <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+          <Link
+            href="/shop?type=DIGITAL_DOWNLOAD"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 transition group"
+          >
+            <span>View All 200+ Live Assets</span>
+            <FaArrowRight className="text-[10px] group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </div>
 
       {/* 4-Column Card Grid */}

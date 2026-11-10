@@ -63,6 +63,11 @@ const Header = () => {
       active: pathname.startsWith("/tools"),
     },
     {
+      name: "Pricing",
+      href: "/pricing",
+      active: pathname === "/pricing",
+    },
+    {
       name: "About",
       href: "/about",
       active: pathname === "/about",

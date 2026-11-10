@@ -39,6 +39,10 @@ const Footer = () => {
               About Us
             </Link>
             <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <Link href="/pricing" className="hover:text-cyan-600 dark:hover:text-cyan-300 transition">
+              Pricing
+            </Link>
+            <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
             <Link href="/contact" className="hover:text-cyan-600 dark:hover:text-cyan-300 transition">
               Contact Us
             </Link>

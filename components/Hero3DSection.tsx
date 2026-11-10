@@ -115,6 +115,13 @@ export default function Hero3DSection() {
                 <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" />
               </Link>
 
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-cyan-500/50 text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 shadow-sm transition-all duration-200 active:scale-95"
+              >
+                <span>Pricing &amp; Rates</span>
+              </Link>
+
               <button
                 type="button"
                 onClick={() => setVideoModalOpen(true)}

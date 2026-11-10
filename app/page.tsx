@@ -182,6 +182,94 @@ export default function Home() {
     ],
   };
 
+  const featuredProductsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Featured Products & Sourcing Offers",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Product",
+          name: "Google AI Pro Slot + 5TB 1 Month Full Warranty",
+          image: "https://zymi.it/digital_ai_prompts.svg",
+          description: "Google AI Pro Slot + 5TB Google One 1 Month Full Warranty family cloud invite.",
+          sku: "canboso_6aef1d8dadf360530f723f20",
+          offers: {
+            "@type": "Offer",
+            url: "https://zymi.it/product/google-ai-pro-slot-5tb",
+            priceCurrency: "USD",
+            price: "1.74",
+            priceValidUntil: "2027-12-31",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "Product",
+          name: "Gemini Pro Slot + 5TB Google One 6 Months Full Warranty",
+          image: "https://zymi.it/digital_ai_prompts.svg",
+          description: "Gemini Pro Slot + 5TB Google One 6 Months Full Warranty.",
+          sku: "canboso_6ae92bc35edeecad99f76f79",
+          offers: {
+            "@type": "Offer",
+            url: "https://zymi.it/product/gemini-pro-slot-5tb-6-months",
+            priceCurrency: "USD",
+            price: "4.19",
+            priceValidUntil: "2027-12-31",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "Product",
+          name: "Canva Pro Join Link 1 Month Full Warranty",
+          image: "https://zymi.it/digital_design_templates.svg",
+          description: "Canva Pro Join Link 1 Month Full Warranty team workspace invite.",
+          sku: "canboso_6aea8c51adf86f5477863e33",
+          offers: {
+            "@type": "Offer",
+            url: "https://zymi.it/product/canva-pro-join-link-1-month",
+            priceCurrency: "USD",
+            price: "0.80",
+            priceValidUntil: "2027-12-31",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        item: {
+          "@type": "Product",
+          name: "Apparel Emporium Heavyweight Export T-Shirt",
+          image: "https://zymi.it/hero_factory_panoramic.svg",
+          description: "Direct RMG Factory Manufacturing 100% Combed Cotton 200 GSM T-Shirt.",
+          sku: "ael_ts_200",
+          offers: {
+            "@type": "Offer",
+            url: "https://zymi.it/product/apparel-emporium-heavyweight-tshirt",
+            priceCurrency: "USD",
+            price: "2.80",
+            priceValidUntil: "2027-12-31",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+        },
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-[#050a18] text-slate-900 dark:text-slate-100 selection:bg-cyan-500 selection:text-slate-950 pb-16 transition-colors duration-200">
       {/* 1. Explicit Organization JSON-LD Block */}
@@ -208,7 +296,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* 5. Semantic Machine-Readable Contact Details for Agents & Crawlers */}
+      {/* 5. Product & Offer Schema JSON-LD Block (Reachable without JS) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(featuredProductsSchema) }}
+      />
+
+      {/* 6. Semantic Machine-Readable Contact Details for Agents & Crawlers */}
       <div className="sr-only" itemScope itemType="https://schema.org/Organization">
         <span itemProp="name">ZYMI Global</span>
         <a href="mailto:contact@zymi.it" itemProp="email">contact@zymi.it</a>
@@ -220,8 +314,61 @@ export default function Home() {
         </div>
       </div>
 
+      {/* 7. Static Server-Rendered Product & Offer Microdata for Non-JS Crawlers */}
+      <section className="sr-only" aria-label="Featured Product Offers">
+        <div itemScope itemType="https://schema.org/ItemList">
+          <div itemProp="itemListElement" itemScope itemType="https://schema.org/Product">
+            <span itemProp="name">Google AI Pro Slot + 5TB 1 Month Full Warranty</span>
+            <div itemProp="offers" itemScope itemType="https://schema.org/Offer">
+              <span itemProp="price">1.74</span>
+              <span itemProp="priceCurrency">USD</span>
+              <link itemProp="availability" href="https://schema.org/InStock" />
+              <a href="https://zymi.it/product/google-ai-pro-slot-5tb" itemProp="url">View Product</a>
+            </div>
+          </div>
+          <div itemProp="itemListElement" itemScope itemType="https://schema.org/Product">
+            <span itemProp="name">Canva Pro Join Link 1 Month Full Warranty</span>
+            <div itemProp="offers" itemScope itemType="https://schema.org/Offer">
+              <span itemProp="price">0.80</span>
+              <span itemProp="priceCurrency">USD</span>
+              <link itemProp="availability" href="https://schema.org/InStock" />
+              <a href="https://zymi.it/product/canva-pro-join-link-1-month" itemProp="url">View Product</a>
+            </div>
+          </div>
+          <div itemProp="itemListElement" itemScope itemType="https://schema.org/Product">
+            <span itemProp="name">Apparel Emporium Heavyweight Export T-Shirt</span>
+            <div itemProp="offers" itemScope itemType="https://schema.org/Offer">
+              <span itemProp="price">2.80</span>
+              <span itemProp="priceCurrency">USD</span>
+              <link itemProp="availability" href="https://schema.org/InStock" />
+              <a href="https://zymi.it/product/apparel-emporium-heavyweight-tshirt" itemProp="url">View Product</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 1. 3D Hero Section & 7-Item Category Launchpad */}
       <Hero3DSection />
+
+      {/* Pricing Quick Access Banner (Reachable without JS) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-center sm:text-left">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+              Transparent Pricing &amp; Sourcing Rates
+            </span>
+            <p className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
+              Instant Digital Assets from <span className="text-cyan-600 dark:text-cyan-400 font-black">$0.80</span> • Factory Direct Sourcing from <span className="text-cyan-600 dark:text-cyan-400 font-black">$2.80/pc</span> • Free Engineering Tools <span className="text-emerald-600 dark:text-emerald-400 font-black">$0</span>
+            </p>
+          </div>
+          <a
+            href="/pricing"
+            className="px-5 py-2.5 rounded-xl text-xs font-bold bg-cyan-500 hover:bg-cyan-400 text-slate-950 shrink-0 transition shadow-sm flex items-center gap-1.5"
+          >
+            <span>View Pricing Guide</span>
+          </a>
+        </div>
+      </section>
 
       {/* 2. Featured Digital Products Grid (3D Box Artwork + Instant Cart) */}
       <FeaturedDigitalProducts />
