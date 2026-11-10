@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     "amazon creators affiliate",
   ],
   authors: [{ name: "Apparel Emporium & ZYMI Engineering Team" }],
+  other: {
+    "content-signal": "search=yes, ai-train=no",
+  },
 };
 
 export default async function RootLayout({

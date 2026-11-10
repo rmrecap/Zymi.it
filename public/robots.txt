@@ -1,6 +1,9 @@
 # robots.txt for https://zymi.it
 # ZYMI Global & Apparel Emporium Hybrid Platform
 
+# Content Signals Directive (https://contentsignals.org)
+Content-Signal: search=yes, ai-train=no
+
 User-agent: *
 Allow: /
 Allow: /shop
