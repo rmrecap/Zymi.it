@@ -1,0 +1,42 @@
+# robots.txt for https://zymi.it
+# ZYMI Global & Apparel Emporium Hybrid Platform
+
+User-agent: *
+Allow: /
+Allow: /shop
+Allow: /shop/*
+Allow: /b2b-apparel
+Allow: /blog
+Allow: /blog/*
+Allow: /tools
+Allow: /tools/*
+Allow: /product/*
+Allow: /search
+
+# Disallow private and administrative endpoints
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /zymi-admin-gate
+Disallow: /zymi-admin-gate/*
+Disallow: /api/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /login
+Disallow: /register
+
+# AI & LLM Search Crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /zymi-admin-gate
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /zymi-admin-gate
+Disallow: /api/
+
+# Host and Sitemap
+Host: https://zymi.it
+Sitemap: https://zymi.it/sitemap.xml
