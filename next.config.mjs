@@ -18,6 +18,12 @@ const nextConfig = {
   experimental: {
     cpus: 1,
     workerThreads: false,
+    optimizePackageImports: [
+      "react-icons",
+      "@headlessui/react",
+      "date-fns",
+      "nanoid",
+    ],
   },
   images: {
     formats: ["image/avif", "image/webp"],

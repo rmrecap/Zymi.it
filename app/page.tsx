@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  Hero3DSection,
-  FeaturedDigitalProducts,
-  SplitUtilityDealsSection,
-  GlobalSourcingHub,
-  BlogAndInfluencerStrip,
-} from "@/components";
+import Hero3DSection from "@/components/Hero3DSection";
+import FeaturedDigitalProducts from "@/components/FeaturedDigitalProducts";
+import SplitUtilityDealsSection from "@/components/SplitUtilityDealsSection";
+import GlobalSourcingHub from "@/components/GlobalSourcingHub";
+import BlogAndInfluencerStrip from "@/components/BlogAndInfluencerStrip";
 
 export default function Home() {
   const organizationSchema = {

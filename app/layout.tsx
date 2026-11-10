@@ -148,6 +148,9 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preconnect & DNS-Prefetch for External Product Images */}
+        <link rel="preconnect" href="https://m.media-amazon.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://m.media-amazon.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
