@@ -33,15 +33,19 @@ export function useSessionTimeout() {
       // Start the initial timeout
       startTimeout();
 
-      // Reset timeout on user activity
+      // Reset timeout on user activity (throttled to once every 15 seconds to prevent forced reflows)
+      let lastActivityTime = 0;
       const resetTimeout = () => {
+        const now = Date.now();
+        if (now - lastActivityTime < 15000) return;
+        lastActivityTime = now;
         startTimeout();
       };
 
-      // Listen for user activity
-      const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+      // Listen for user activity with passive listeners
+      const events = ['mousedown', 'keydown', 'scroll', 'touchstart', 'click'];
       events.forEach(event => {
-        document.addEventListener(event, resetTimeout, true);
+        window.addEventListener(event, resetTimeout, { passive: true });
       });
 
       return () => {
@@ -49,7 +53,7 @@ export function useSessionTimeout() {
           clearTimeout(timeoutRef.current);
         }
         events.forEach(event => {
-          document.removeEventListener(event, resetTimeout, true);
+          window.removeEventListener(event, resetTimeout);
         });
       };
     }

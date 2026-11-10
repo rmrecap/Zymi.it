@@ -22,7 +22,7 @@ export default function GlobalSourcingHub() {
   ];
 
   return (
-    <section className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto content-visibility-auto">
       <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-cyan-500/30 p-6 sm:p-8 shadow-xl dark:shadow-2xl dark:shadow-cyan-500/10">
         {/* Glow corner */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />

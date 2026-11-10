@@ -167,7 +167,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-slate-50 dark:bg-[#050a18] text-slate-900 dark:text-slate-100 min-h-screen antialiased selection:bg-cyan-500 selection:text-slate-950 transition-colors duration-200`}>
+      <body className={`${inter.className} bg-slate-50 dark:bg-[#050a18] text-slate-900 dark:text-slate-100 min-h-screen antialiased selection:bg-cyan-500 selection:text-slate-950`}>
         <SessionProvider session={session}>
           <SessionTimeoutWrapper />
           <Header />

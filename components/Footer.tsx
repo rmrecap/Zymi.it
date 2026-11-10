@@ -14,7 +14,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-100 dark:bg-[#030712] border-t border-slate-200 dark:border-slate-800/80 text-slate-600 dark:text-slate-400 mt-16 transition-colors duration-200">
+    <footer className="bg-slate-100 dark:bg-[#030712] border-t border-slate-200 dark:border-slate-800/80 text-slate-600 dark:text-slate-400 mt-16 content-visibility-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
         {/* Main Footer Row matching the Visual Blueprint */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-200 dark:border-slate-800">

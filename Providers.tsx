@@ -6,7 +6,12 @@ import WebMCPProvider from "@/components/WebMCPProvider";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem={false}
+      disableTransitionOnChange
+    >
       <WebMCPProvider />
       <Toaster
         toastOptions={{

@@ -112,7 +112,7 @@ const Header = () => {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white/85 dark:bg-[#050a18]/85 backdrop-blur-xl border-b border-slate-200 dark:border-cyan-500/10 transition-colors duration-200">
+    <header className="sticky top-0 z-50 bg-white/85 dark:bg-[#050a18]/85 backdrop-blur-xl border-b border-slate-200 dark:border-cyan-500/10">
       {/* Main Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-3">
         {/* Brand Logo & Tagline */}

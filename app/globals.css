@@ -25,7 +25,12 @@ html, body {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Performance: Below-the-fold content visibility optimization to prevent forced reflows */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
 }
 
 *, *::before, *::after {

@@ -53,7 +53,7 @@ export default function SplitUtilityDealsSection() {
   const affiliateDealUrl = `/api/affiliate/redirect?asin=${deal.asin}&tag=harperfinds20-20&productId=sony-wh1000xm5`;
 
   return (
-    <section className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto content-visibility-auto">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left Side: RMG Utility Tools (7 cols on lg) */}
         <div className="lg:col-span-7 flex flex-col justify-between p-6 rounded-3xl bg-white dark:bg-slate-900/70 backdrop-blur-md border border-slate-200 dark:border-slate-800/90 shadow-lg dark:shadow-xl dark:shadow-black/40">
