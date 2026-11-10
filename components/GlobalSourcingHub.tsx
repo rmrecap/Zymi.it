@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { FaGlobe, FaIndustry, FaShieldHalved, FaArrowRight, FaCheck } from "react-icons/fa6";
+import { FaGlobe, FaIndustry, FaShieldHalved, FaArrowRight, FaCheck, FaEnvelope, FaPhone } from "react-icons/fa6";
 
 // Lazy-load B2B modal to reduce initial page bundle
 const B2BInquiryModal = dynamic(() => import("./B2BInquiryModal"), {
@@ -95,6 +95,27 @@ export default function GlobalSourcingHub() {
                 <span>View Factory Profile</span>
                 <FaArrowRight className="text-xs" />
               </Link>
+            </div>
+
+            {/* Direct Machine-Readable Contact Links */}
+            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-slate-300">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block w-full sm:w-auto">
+                Direct Contact:
+              </span>
+              <a
+                href="mailto:contact@zymi.it"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-cyan-400 transition font-medium"
+              >
+                <FaEnvelope className="text-cyan-500" />
+                <span>contact@zymi.it</span>
+              </a>
+              <a
+                href="tel:+8801700000000"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-cyan-400 transition font-medium"
+              >
+                <FaPhone className="text-emerald-500" />
+                <span>+880-1700-000000</span>
+              </a>
             </div>
           </div>
 

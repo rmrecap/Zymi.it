@@ -123,6 +123,7 @@ export default async function RootLayout({
     image: "https://zymi.it/hero_factory_panoramic.svg",
     url: "https://zymi.it",
     telephone: "+880-1700-000000",
+    email: "contact@zymi.it",
     priceRange: "$$",
     sameAs: [
       "https://aelbd.net",

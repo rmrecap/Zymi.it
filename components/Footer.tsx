@@ -8,6 +8,8 @@ import {
   FaIndustry,
   FaGlobe,
   FaEnvelope,
+  FaPhone,
+  FaLocationDot,
 } from "react-icons/fa6";
 
 const Footer = () => {
@@ -95,12 +97,48 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Machine-Readable Contact Details & Corporate Address */}
+        <div className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800/80 pb-6">
+          <address className="not-italic flex items-center gap-2">
+            <FaLocationDot className="text-cyan-600 dark:text-cyan-400 shrink-0 text-sm" />
+            <span>House 12, Road 4, Sector 3, Uttara, Dhaka-1230, Bangladesh</span>
+          </address>
+
+          <div className="flex items-center gap-2 md:justify-center">
+            <FaEnvelope className="text-blue-600 dark:text-blue-400 shrink-0 text-sm" />
+            <span>Email: </span>
+            <a
+              href="mailto:contact@zymi.it"
+              className="text-cyan-600 dark:text-cyan-400 hover:underline font-semibold"
+              aria-label="Email ZYMI Global Support"
+            >
+              contact@zymi.it
+            </a>
+          </div>
+
+          <div className="flex items-center gap-2 md:justify-end">
+            <FaPhone className="text-emerald-600 dark:text-emerald-400 shrink-0 text-sm" />
+            <span>Tel: </span>
+            <a
+              href="tel:+8801700000000"
+              className="text-cyan-600 dark:text-cyan-400 hover:underline font-semibold"
+              aria-label="Call ZYMI Global Support"
+            >
+              +880-1700-000000
+            </a>
+          </div>
+        </div>
+
         {/* Secondary RMG & B2B Details */}
         <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-2">
             <FaIndustry className="text-cyan-600 dark:text-cyan-400" />
             <span>
-              Official Promotion for <strong>Apparel Emporium</strong> (aelbd.net)
+              Official Promotion for <strong>Apparel Emporium</strong> (
+              <a href="https://aelbd.net" target="_blank" rel="noopener noreferrer" className="text-cyan-600 dark:text-cyan-400 underline">
+                aelbd.net
+              </a>
+              )
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -109,7 +147,13 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-2 sm:justify-end">
             <FaEnvelope className="text-amber-500 dark:text-amber-400" />
-            <span>export@aelbd.net • Store ID: harperfinds20-20</span>
+            <span>
+              B2B Desk:{" "}
+              <a href="mailto:export@aelbd.net" className="text-cyan-600 dark:text-cyan-400 underline font-semibold">
+                export@aelbd.net
+              </a>{" "}
+              • ID: harperfinds20-20
+            </span>
           </div>
         </div>
 

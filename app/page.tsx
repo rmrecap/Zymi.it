@@ -86,6 +86,7 @@ export default function Home() {
     image: "https://zymi.it/hero_factory_panoramic.svg",
     url: "https://zymi.it",
     telephone: "+880-1700-000000",
+    email: "contact@zymi.it",
     priceRange: "$$",
     sameAs: [
       "https://aelbd.net",
@@ -206,6 +207,18 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      {/* 5. Semantic Machine-Readable Contact Details for Agents & Crawlers */}
+      <div className="sr-only" itemScope itemType="https://schema.org/Organization">
+        <span itemProp="name">ZYMI Global</span>
+        <a href="mailto:contact@zymi.it" itemProp="email">contact@zymi.it</a>
+        <a href="tel:+8801700000000" itemProp="telephone">+880-1700-000000</a>
+        <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+          <span itemProp="streetAddress">House 12, Road 4, Sector 3, Uttara</span>
+          <span itemProp="addressLocality">Dhaka</span>
+          <span itemProp="addressCountry">BD</span>
+        </div>
+      </div>
 
       {/* 1. 3D Hero Section & 7-Item Category Launchpad */}
       <Hero3DSection />

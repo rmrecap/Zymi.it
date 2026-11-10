@@ -15,6 +15,8 @@ import {
   FaBars,
   FaXmark,
   FaChevronDown,
+  FaEnvelope,
+  FaPhone,
 } from "react-icons/fa6";
 
 const Header = () => {
@@ -193,6 +195,24 @@ const Header = () => {
                 {pill.name}
               </Link>
             ))}
+          </div>
+
+          {/* Quick Contact Bar */}
+          <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+            <a
+              href="mailto:contact@zymi.it"
+              className="flex items-center gap-1.5 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
+            >
+              <FaEnvelope className="text-cyan-500" />
+              <span>contact@zymi.it</span>
+            </a>
+            <a
+              href="tel:+8801700000000"
+              className="flex items-center gap-1.5 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
+            >
+              <FaPhone className="text-emerald-500" />
+              <span>+880-1700-000000</span>
+            </a>
           </div>
         </div>
       )}
