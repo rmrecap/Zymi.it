@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Free RMG & Textile Engineering Tools | ZYMI & Apparel Emporium",
   description:
     "Free client-side textile calculators for garment merchandisers: Fabric Consumption (kg/dz), GSM & Costing Estimator, and Yarn Count Converter.",
+  alternates: {
+    canonical: "https://zymi.it/tools",
+  },
 };
 
 export default function ToolsHubPage() {

@@ -17,9 +17,31 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "ZYMI RMG Hub | Global Multipurpose Commerce & Apparel Emporium",
+  metadataBase: new URL("https://zymi.it"),
+  alternates: {
+    canonical: "https://zymi.it",
+  },
+  title: {
+    default: "ZYMI RMG Hub | Global Multipurpose Commerce & Apparel Emporium",
+    template: "%s | ZYMI Global",
+  },
   description:
     "Explore • Shop • Learn • Grow. Official promotion and B2B export gateway for Apparel Emporium (aelbd.net). Direct factory sourcing, digital tech packs, free textile calculators, and trending affiliate deals.",
+  openGraph: {
+    title: "ZYMI RMG Hub | Global Multipurpose Commerce & Apparel Emporium",
+    description:
+      "Explore • Shop • Learn • Grow. Official promotion and B2B export gateway for Apparel Emporium (aelbd.net). Direct factory sourcing, digital tech packs, free textile calculators, and trending affiliate deals.",
+    url: "https://zymi.it",
+    siteName: "ZYMI Global",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ZYMI RMG Hub | Global Multipurpose Commerce & Apparel Emporium",
+    description:
+      "Explore • Shop • Learn • Grow. Official promotion and B2B export gateway for Apparel Emporium (aelbd.net).",
+  },
   keywords: [
     "Apparel Emporium",
     "aelbd.net",

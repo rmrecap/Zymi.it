@@ -8,6 +8,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Apparel Emporium B2B | RMG Manufacturing & Apparel Export Hub",
   description: "Global B2B wholesale clothing, RMG export, custom private label garment manufacturing, low MOQ tech packs, and factory direct quotes.",
+  alternates: {
+    canonical: "https://zymi.it/b2b-apparel",
+  },
 };
 
 export default async function B2BApparelPage() {

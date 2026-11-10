@@ -15,6 +15,7 @@ import { sanitize } from "@/lib/sanitize";
 import prisma from "@/utils/db";
 import { getLiveCanbosoProducts } from "@/lib/canboso-api";
 import { getAmazonProductBySlugOrAsin } from "@/lib/amazon-top-products";
+import type { Metadata } from "next";
 
 interface ImageItem {
   imageID: string;
@@ -24,6 +25,29 @@ interface ImageItem {
 
 interface SingleProductPageProps {
   params: Promise<{ productSlug: string; id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: SingleProductPageProps): Promise<Metadata> {
+  const paramsAwaited = await params;
+  const slug = paramsAwaited?.productSlug || "product";
+  const formattedTitle = slug
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
+  return {
+    title: `${formattedTitle} | ZYMI Store`,
+    description: `Buy ${formattedTitle} online at ZYMI Global. Verified quality, fast global shipping, and direct factory-level reliability.`,
+    alternates: {
+      canonical: `https://zymi.it/product/${slug}`,
+    },
+    openGraph: {
+      title: `${formattedTitle} | ZYMI Store`,
+      description: `Buy ${formattedTitle} online at ZYMI Global.`,
+      url: `https://zymi.it/product/${slug}`,
+    },
+  };
 }
 
 const SingleProductPage = async ({ params }: SingleProductPageProps) => {

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "RMG Industry Insights & Apparel Sourcing Blog | ZYMI & Apparel Emporium",
   description:
     "Expert apparel manufacturing guides, fabric engineering insights, export compliance trends, and fashion merchandising strategies by Apparel Emporium (aelbd.net).",
+  alternates: {
+    canonical: "https://zymi.it/blog",
+  },
 };
 
 export default async function BlogIndexPage() {

@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+import type { Metadata } from "next";
 import {
   Breadcrumb,
   Filters,
@@ -11,6 +12,15 @@ import {
 } from "@/components";
 import React from "react";
 import { sanitize } from "@/lib/sanitize";
+
+export const metadata: Metadata = {
+  title: "Shop All Collections | Apparel Emporium & Curated Gear",
+  description:
+    "Browse verified RMG apparel, industrial garment machinery, and digital design templates at ZYMI Global.",
+  alternates: {
+    canonical: "https://zymi.it/shop",
+  },
+};
 
 // improve readabillity of category text, for example category text "smart-watches" will be "smart watches"
 const improveCategoryText = (text: string): string => {
