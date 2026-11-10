@@ -235,7 +235,7 @@ export default function FeaturedDigitalProducts() {
                 <span className="text-lg font-black text-slate-900 dark:text-white">
                   ${product.price.toFixed(2)}
                 </span>
-                <span className="text-xs text-slate-400 dark:text-slate-500 line-through">
+                <span className="text-xs text-slate-600 dark:text-slate-400 line-through">
                   ${product.originalPrice.toFixed(2)}
                 </span>
                 <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 ml-auto">

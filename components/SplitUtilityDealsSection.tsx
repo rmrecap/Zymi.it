@@ -75,6 +75,7 @@ export default function SplitUtilityDealsSection() {
 
             <Link
               href="/tools"
+              aria-label="View all free RMG utility calculators"
               className="inline-flex items-center gap-1 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 transition group"
             >
               <span>View All</span>
@@ -168,6 +169,7 @@ export default function SplitUtilityDealsSection() {
 
             <Link
               href="/shop?type=AFFILIATE_AMAZON"
+              aria-label="View all curated commercial gear and affiliate deals"
               className="inline-flex items-center gap-1 text-xs font-bold text-amber-600 dark:text-amber-400 hover:text-amber-500 transition group"
             >
               <span>View All</span>
@@ -208,7 +210,7 @@ export default function SplitUtilityDealsSection() {
                 <span className="text-xl font-black text-slate-900 dark:text-white">
                   ${deal.price.toFixed(2)}
                 </span>
-                <span className="text-xs text-slate-400 dark:text-slate-500 line-through">
+                <span className="text-xs text-slate-600 dark:text-slate-400 line-through">
                   ${deal.originalPrice.toFixed(2)}
                 </span>
               </div>

@@ -1,9 +1,28 @@
 import React from "react";
+import type { Metadata } from "next";
 import Hero3DSection from "@/components/Hero3DSection";
 import FeaturedDigitalProducts from "@/components/FeaturedDigitalProducts";
 import SplitUtilityDealsSection from "@/components/SplitUtilityDealsSection";
 import GlobalSourcingHub from "@/components/GlobalSourcingHub";
 import BlogAndInfluencerStrip from "@/components/BlogAndInfluencerStrip";
+
+export const metadata: Metadata = {
+  title: "ZYMI RMG Hub | Global Multipurpose Commerce & Apparel Emporium",
+  description:
+    "Explore • Shop • Learn • Grow. Official promotion and B2B export gateway for Apparel Emporium (aelbd.net). Direct factory sourcing, digital tech packs, free textile calculators, and trending affiliate deals.",
+  alternates: {
+    canonical: "https://zymi.it",
+  },
+  openGraph: {
+    title: "ZYMI RMG Hub | Global Multipurpose Commerce & Apparel Emporium",
+    description:
+      "Explore • Shop • Learn • Grow. Official promotion and B2B export gateway for Apparel Emporium (aelbd.net). Direct factory sourcing, digital tech packs, free textile calculators, and trending affiliate deals.",
+    url: "https://zymi.it",
+    siteName: "ZYMI Global",
+    locale: "en_US",
+    type: "website",
+  },
+};
 
 export default function Home() {
   const organizationSchema = {

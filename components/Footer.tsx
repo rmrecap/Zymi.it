@@ -75,7 +75,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-red-500 hover:border-red-500/50 transition shadow-xs"
-              aria-label="YouTube"
+              aria-label="Visit ZYMI Global on YouTube"
             >
               <FaYoutube className="text-xs" />
             </a>
@@ -84,7 +84,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-500 hover:border-blue-400/50 transition shadow-xs"
-              aria-label="Facebook"
+              aria-label="Visit ZYMI Global on Facebook"
             >
               <FaFacebookF className="text-xs" />
             </a>
@@ -93,7 +93,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-400/50 transition shadow-xs"
-              aria-label="LinkedIn"
+              aria-label="Visit Apparel Emporium on LinkedIn"
             >
               <FaLinkedinIn className="text-xs" />
             </a>
@@ -102,7 +102,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-pink-500 hover:border-pink-400/50 transition shadow-xs"
-              aria-label="TikTok"
+              aria-label="Visit ZYMI Global on TikTok"
             >
               <FaTiktok className="text-xs" />
             </a>
@@ -142,7 +142,7 @@ const Footer = () => {
         </div>
 
         {/* Secondary RMG & B2B Details */}
-        <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-500 dark:text-slate-400">
+        <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-600 dark:text-slate-400">
           <div className="flex items-center gap-2">
             <FaIndustry className="text-cyan-600 dark:text-cyan-400" />
             <span>
@@ -170,9 +170,9 @@ const Footer = () => {
         </div>
 
         {/* Copyright & Disclaimer */}
-        <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-850 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500 dark:text-slate-500">
+        <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-850 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-600 dark:text-slate-400">
           <p>© {new Date().getFullYear()} ZYMI Global &amp; Apparel Emporium. All rights reserved.</p>
-          <p className="text-slate-500 text-center sm:text-right">
+          <p className="text-slate-600 dark:text-slate-400 text-center sm:text-right">
             Disclaimer: As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.
           </p>
         </div>

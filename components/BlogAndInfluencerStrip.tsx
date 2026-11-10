@@ -95,6 +95,7 @@ export default function BlogAndInfluencerStrip() {
 
             <Link
               href="/blog"
+              aria-label="View all blog posts and industry insights"
               className="inline-flex items-center gap-1 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 transition group"
             >
               <span>View All</span>
@@ -128,7 +129,7 @@ export default function BlogAndInfluencerStrip() {
                   <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug">
                     {post.title}
                   </h4>
-                  <span className="text-[10px] text-slate-500 font-medium block">
+                  <span className="text-[10px] text-slate-600 dark:text-slate-400 font-medium block">
                     {post.date}
                   </span>
                 </div>
@@ -161,6 +162,7 @@ export default function BlogAndInfluencerStrip() {
                 href="https://tiktok.com"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Follow ZYMI Global on TikTok"
                 className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition"
               >
                 <FaTiktok />
@@ -169,6 +171,7 @@ export default function BlogAndInfluencerStrip() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Follow ZYMI Global on Instagram"
                 className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-rose-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
               >
                 <FaInstagram />
@@ -177,6 +180,7 @@ export default function BlogAndInfluencerStrip() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Follow ZYMI Global on YouTube"
                 className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-red-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
               >
                 <FaYoutube />
