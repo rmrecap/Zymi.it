@@ -25,6 +25,9 @@ Allow: /privacy-policy
 Allow: /terms
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /.well-known/mcp/server-card.json
+Allow: /.well-known/*
+Allow: /api/mcp
 
 # Disallow private and administrative endpoints
 Disallow: /admin

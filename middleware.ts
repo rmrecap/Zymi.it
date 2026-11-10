@@ -1,12 +1,28 @@
 import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 import { getMarkdownForPath } from "./utils/getMarkdownForPath";
+import { mcpServerCard } from "./utils/mcpServerCard";
 
 export default withAuth(
   function middleware(req) {
     const pathname = req.nextUrl.pathname;
 
-    // 1. Content Negotiation: Check for Accept: text/markdown or ?format=md
+    // 1. Serve MCP Server Card (SEP-1649)
+    if (
+      pathname === "/.well-known/mcp/server-card.json" ||
+      pathname === "/.well-known/mcp/server-card"
+    ) {
+      return NextResponse.json(mcpServerCard, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Cache-Control": "public, max-age=3600, s-maxage=3600",
+        },
+      });
+    }
+
+    // 2. Content Negotiation: Check for Accept: text/markdown or ?format=md
     const acceptHeader = req.headers.get("accept") || "";
     const formatParam = req.nextUrl.searchParams.get("format");
     const wantsMarkdown =

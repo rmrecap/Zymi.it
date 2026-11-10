@@ -26,6 +26,8 @@
 
 ## Machine-Readable Endpoints & Policies
 
+- [MCP Server Card (SEP-1649)](https://zymi.it/.well-known/mcp/server-card.json): Official Model Context Protocol discovery manifest.
+- [MCP Endpoint](https://zymi.it/api/mcp): Live JSON-RPC tool and quote execution endpoint for agents.
 - [Robots.txt](https://zymi.it/robots.txt): Crawler rules and content signal directives (`search=yes, ai-train=no`).
 - [Sitemap](https://zymi.it/sitemap.xml): XML index of all public URLs.
 - [Privacy Policy](https://zymi.it/privacy-policy): GDPR/CCPA data governance and Amazon Associates affiliate disclosures.
