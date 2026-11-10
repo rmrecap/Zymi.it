@@ -76,8 +76,10 @@ const Footer = () => {
               rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-red-500 hover:border-red-500/50 transition shadow-xs"
               aria-label="Visit ZYMI Global on YouTube"
+              title="Visit ZYMI Global on YouTube"
             >
-              <FaYoutube className="text-xs" />
+              <FaYoutube className="text-xs" aria-hidden="true" />
+              <span className="sr-only">Visit ZYMI Global on YouTube</span>
             </a>
             <a
               href="https://facebook.com"
@@ -85,8 +87,10 @@ const Footer = () => {
               rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-500 hover:border-blue-400/50 transition shadow-xs"
               aria-label="Visit ZYMI Global on Facebook"
+              title="Visit ZYMI Global on Facebook"
             >
-              <FaFacebookF className="text-xs" />
+              <FaFacebookF className="text-xs" aria-hidden="true" />
+              <span className="sr-only">Visit ZYMI Global on Facebook</span>
             </a>
             <a
               href="https://linkedin.com"
@@ -94,8 +98,10 @@ const Footer = () => {
               rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-400/50 transition shadow-xs"
               aria-label="Visit Apparel Emporium on LinkedIn"
+              title="Visit Apparel Emporium on LinkedIn"
             >
-              <FaLinkedinIn className="text-xs" />
+              <FaLinkedinIn className="text-xs" aria-hidden="true" />
+              <span className="sr-only">Visit Apparel Emporium on LinkedIn</span>
             </a>
             <a
               href="https://tiktok.com"
@@ -103,8 +109,10 @@ const Footer = () => {
               rel="noreferrer"
               className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-pink-500 hover:border-pink-400/50 transition shadow-xs"
               aria-label="Visit ZYMI Global on TikTok"
+              title="Visit ZYMI Global on TikTok"
             >
-              <FaTiktok className="text-xs" />
+              <FaTiktok className="text-xs" aria-hidden="true" />
+              <span className="sr-only">Visit ZYMI Global on TikTok</span>
             </a>
           </div>
         </div>

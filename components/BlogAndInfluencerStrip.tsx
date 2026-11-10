@@ -163,27 +163,33 @@ export default function BlogAndInfluencerStrip() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Follow ZYMI Global on TikTok"
-                className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition"
+                title="Follow ZYMI Global on TikTok"
+                className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition inline-flex items-center justify-center"
               >
-                <FaTiktok />
+                <FaTiktok aria-hidden="true" />
+                <span className="sr-only">Follow ZYMI Global on TikTok</span>
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Follow ZYMI Global on Instagram"
-                className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-rose-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
+                title="Follow ZYMI Global on Instagram"
+                className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-rose-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition inline-flex items-center justify-center"
               >
-                <FaInstagram />
+                <FaInstagram aria-hidden="true" />
+                <span className="sr-only">Follow ZYMI Global on Instagram</span>
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Follow ZYMI Global on YouTube"
-                className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-red-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
+                title="Follow ZYMI Global on YouTube"
+                className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:text-red-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition inline-flex items-center justify-center"
               >
-                <FaYoutube />
+                <FaYoutube aria-hidden="true" />
+                <span className="sr-only">Follow ZYMI Global on YouTube</span>
               </a>
             </div>
           </div>

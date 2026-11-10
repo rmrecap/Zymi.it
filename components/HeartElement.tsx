@@ -9,9 +9,11 @@ const HeartElement = ({ wishQuantity }: { wishQuantity: number }) => {
       <Link
         href="/wishlist"
         className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/60 text-rose-400 hover:text-rose-300 transition-all duration-200 flex items-center justify-center shadow-xs"
-        aria-label="Wishlist"
+        aria-label="View My Wishlist"
+        title="View My Wishlist"
       >
-        <FaHeart className="text-lg" />
+        <FaHeart className="text-lg" aria-hidden="true" />
+        <span className="sr-only">My Wishlist</span>
         {wishQuantity > 0 && (
           <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-[11px] rounded-full flex justify-center items-center shadow-sm shadow-rose-500/50">
             {wishQuantity}
