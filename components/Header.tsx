@@ -60,6 +60,16 @@ const Header = () => {
       href: "/tools",
       active: pathname.startsWith("/tools"),
     },
+    {
+      name: "About",
+      href: "/about",
+      active: pathname === "/about",
+    },
+    {
+      name: "Contact",
+      href: "/contact",
+      active: pathname === "/contact",
+    },
   ];
 
   if (pathname.startsWith("/admin")) {

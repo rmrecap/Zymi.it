@@ -31,8 +31,16 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Center: Legal & Policy Links */}
+          {/* Center: Navigation, Legal & Policy Links */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+            <Link href="/about" className="hover:text-cyan-600 dark:hover:text-cyan-300 transition">
+              About Us
+            </Link>
+            <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <Link href="/contact" className="hover:text-cyan-600 dark:hover:text-cyan-300 transition">
+              Contact Us
+            </Link>
+            <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
             <Link href="/privacy-policy" className="hover:text-cyan-600 dark:hover:text-cyan-300 transition">
               Privacy Policy
             </Link>
@@ -41,16 +49,8 @@ const Footer = () => {
               Terms of Service
             </Link>
             <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
-            <Link href="/shipping" className="hover:text-cyan-600 dark:hover:text-cyan-300 transition">
-              Shipping Policy
-            </Link>
-            <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
-            <Link href="/returns" className="hover:text-cyan-600 dark:hover:text-cyan-300 transition">
-              Return Policy
-            </Link>
-            <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
             <Link href="/b2b-apparel" className="hover:text-cyan-600 dark:hover:text-cyan-300 transition">
-              Contact Us
+              B2B Apparel
             </Link>
           </div>
 

@@ -31,6 +31,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://zymi.it/about</loc>
+    <lastmod>2026-11-11T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zymi.it/contact</loc>
+    <lastmod>2026-11-11T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zymi.it/privacy-policy</loc>
+    <lastmod>2026-11-11T00:00:00Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zymi.it/terms</loc>
+    <lastmod>2026-11-11T00:00:00Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
   <!-- Free RMG & Textile Engineering Calculators -->
   <url>
