@@ -33,6 +33,13 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
   },
+  webpack: (config, { dev }) => {
+    // Disable disk packfile cache during dev to prevent RangeError: Array buffer allocation failed on Windows
+    if (dev) {
+      config.cache = false;
+    }
+    return config;
+  },
   async headers() {
     return [
       {
