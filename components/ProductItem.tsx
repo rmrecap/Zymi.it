@@ -51,7 +51,22 @@ const ProductItem = ({
       {/* Top Type Badge */}
       <div className="flex justify-between items-center w-full mb-2">
         {renderTypeBadge()}
-        {product.inStock > 0 ? (
+        {(product as any).stock !== undefined ? (
+          <span
+            className={`text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 ${
+              (product as any).stock > 0
+                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                : "bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20"
+            }`}
+          >
+            <span
+              className={`w-1.5 h-1.5 rounded-full ${
+                (product as any).stock > 0 ? "bg-emerald-500 animate-pulse" : "bg-rose-500"
+              }`}
+            />
+            {(product as any).stock > 0 ? `${(product as any).stock} in stock` : "Out of stock"}
+          </span>
+        ) : product.inStock > 0 ? (
           <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">In Stock</span>
         ) : (
           <span className="text-[11px] text-rose-500 dark:text-rose-400 font-medium">Out of Stock</span>

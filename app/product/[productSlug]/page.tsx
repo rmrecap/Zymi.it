@@ -1,10 +1,8 @@
 import {
   StockAvailabillity,
   UrgencyText,
-
   ProductTabs,
   SingleProductDynamicFields,
-  
 } from "@/components";
 import apiClient from "@/lib/api";
 import Image from "next/image";
@@ -14,6 +12,8 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaSquarePinterest } from "react-icons/fa6";
 import { sanitize } from "@/lib/sanitize";
+import prisma from "@/utils/db";
+import { getLiveCanbosoProducts } from "@/lib/canboso-api";
 
 interface ImageItem {
   imageID: string;
@@ -22,22 +22,86 @@ interface ImageItem {
 }
 
 interface SingleProductPageProps {
-  params: Promise<{  productSlug: string, id: string }>;
+  params: Promise<{ productSlug: string; id: string }>;
 }
 
 const SingleProductPage = async ({ params }: SingleProductPageProps) => {
   const paramsAwaited = await params;
-  // sending API request for a single product with a given product slug
-  const data = await apiClient.get(
-    `/api/slugs/${paramsAwaited?.productSlug}`
-  );
-  const product = await data.json();
+  let product: any = null;
+  let images: ImageItem[] = [];
 
-  // sending API request for more than 1 product image if it exists
-  const imagesData = await apiClient.get(
-    `/api/images/${paramsAwaited?.id}`
-  );
-  const images = await imagesData.json();
+  // 1. Try Express API backend if running
+  try {
+    const data = await apiClient.get(
+      `/api/slugs/${paramsAwaited?.productSlug}`
+    );
+    if (data.ok) {
+      product = await data.json();
+    }
+  } catch {
+    product = null;
+  }
+
+  // 2. Fallback: Check Canboso live digital products catalog
+  if (!product || product.error) {
+    try {
+      const canbosoItems = await getLiveCanbosoProducts();
+      const match = canbosoItems.find(
+        (c) =>
+          c.slug === paramsAwaited?.productSlug ||
+          c.id === paramsAwaited?.productSlug ||
+          c.externalId === paramsAwaited?.productSlug
+      );
+      if (match) {
+        product = {
+          id: match.id,
+          title: match.title,
+          price: match.price,
+          costPrice: match.costPrice,
+          originalPrice: match.originalPrice,
+          rating: match.rating,
+          description: match.description,
+          mainImage: match.image,
+          slug: match.slug,
+          manufacturer: match.brand,
+          inStock: match.inStock,
+          stock: match.stock,
+          sold: match.sold,
+          productType: "DIGITAL_DOWNLOAD",
+          digitalFormat: match.digitalType,
+          badge: match.badge,
+        };
+      }
+    } catch {
+      // Ignore
+    }
+  }
+
+  // 3. Fallback: Check direct Prisma database
+  if (!product || product.error) {
+    try {
+      const dbProduct = await prisma.product.findFirst({
+        where: { slug: paramsAwaited?.productSlug },
+      });
+      if (dbProduct) {
+        product = dbProduct;
+      }
+    } catch {
+      // Ignore
+    }
+  }
+
+  // 4. Try fetching images
+  try {
+    const imagesData = await apiClient.get(
+      `/api/images/${paramsAwaited?.id || product?.id}`
+    );
+    if (imagesData.ok) {
+      images = await imagesData.json();
+    }
+  } catch {
+    images = [];
+  }
 
   if (!product || product.error) {
     notFound();

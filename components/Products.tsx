@@ -2,6 +2,7 @@ import React from "react";
 import ProductItem from "./ProductItem";
 import apiClient from "@/lib/api";
 import prisma from "@/utils/db";
+import { getLiveCanbosoProducts } from "@/lib/canboso-api";
 
 const DEFAULT_FALLBACK_PRODUCTS = [
   {
@@ -142,7 +143,37 @@ const Products = async ({
     products = [];
   }
 
-  // 2. Fallback to direct Prisma query if API did not return items
+  // 2. Fetch live Canboso Digital Products if viewing digital downloads or full catalog
+  let liveDigitalProducts: any[] = [];
+  if (!typeFilter || typeFilter === "DIGITAL_DOWNLOAD") {
+    try {
+      const canbosoItems = await getLiveCanbosoProducts();
+      if (canbosoItems && canbosoItems.length > 0) {
+        liveDigitalProducts = canbosoItems.map((c) => ({
+          id: c.id,
+          title: c.title,
+          price: c.price,
+          costPrice: c.costPrice,
+          originalPrice: c.originalPrice,
+          rating: c.rating,
+          description: c.description,
+          mainImage: c.image,
+          slug: c.slug,
+          manufacturer: c.brand,
+          inStock: c.inStock,
+          stock: c.stock,
+          sold: c.sold,
+          productType: "DIGITAL_DOWNLOAD" as const,
+          digitalFormat: c.digitalType,
+          badge: c.badge,
+        }));
+      }
+    } catch {
+      liveDigitalProducts = [];
+    }
+  }
+
+  // 3. Fallback to direct Prisma query if API did not return items
   if (products.length === 0) {
     try {
       products = await prisma.product.findMany({
@@ -155,21 +186,29 @@ const Products = async ({
     }
   }
 
-  // 3. If database was empty or not populated, use default fallback
+  // 4. If database was empty or not populated, use default fallback
   if (products.length === 0) {
     products = DEFAULT_FALLBACK_PRODUCTS;
   }
 
-  // 4. Apply type filter across products (including fallback items)
-  if (typeFilter) {
+  // 5. Integrate Live Canboso digital products into collection
+  if (typeFilter === "DIGITAL_DOWNLOAD") {
+    if (liveDigitalProducts.length > 0) {
+      products = liveDigitalProducts;
+    } else {
+      products = DEFAULT_FALLBACK_PRODUCTS.filter((p) => p.productType === "DIGITAL_DOWNLOAD");
+    }
+  } else if (!typeFilter) {
+    // For 'All Collections', merge top live digital products with physical catalog
+    const topDigital = liveDigitalProducts.slice(0, 12);
+    products = [...products.filter((p: any) => p.productType !== "DIGITAL_DOWNLOAD"), ...topDigital];
+  } else {
+    // Other specific filters (e.g. AFFILIATE_AMAZON, DROPSHIP, B2B_GARMENT)
     const filtered = products.filter((p: any) => p.productType === typeFilter);
     if (filtered.length > 0) {
       products = filtered;
     } else {
-      const fallbackMatches = DEFAULT_FALLBACK_PRODUCTS.filter(
-        (p) => p.productType === typeFilter
-      );
-      products = fallbackMatches;
+      products = DEFAULT_FALLBACK_PRODUCTS.filter((p) => p.productType === typeFilter);
     }
   }
 
