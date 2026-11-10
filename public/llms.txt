@@ -30,6 +30,8 @@
 - [MCP Endpoint](https://zymi.it/api/mcp): Live JSON-RPC tool and quote execution endpoint for agents.
 - [Robots.txt](https://zymi.it/robots.txt): Crawler rules and content signal directives (`search=yes, ai-train=no`).
 - [Sitemap](https://zymi.it/sitemap.xml): XML index of all public URLs.
+- [Shipping & Delivery Policy](https://zymi.it/shipping): B2B ocean/air freight logistics, FOB/CIF terms, and instant digital delivery.
+- [Return & Refund Policy](https://zymi.it/returns): AQL 2.5 defect inspection guarantees, 7-day digital warranty, and sample credits.
 - [Privacy Policy](https://zymi.it/privacy-policy): GDPR/CCPA data governance and Amazon Associates affiliate disclosures.
 - [Terms of Service](https://zymi.it/terms): Commercial licensing and B2B manufacturing terms under Bangladesh jurisdiction.
 

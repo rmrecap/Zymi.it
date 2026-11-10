@@ -50,6 +50,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://zymi.it/shipping</loc>
+    <lastmod>2026-11-11T01:30:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymi.it/returns</loc>
+    <lastmod>2026-11-11T01:30:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymi.it/wishlist</loc>
+    <lastmod>2026-11-11T01:30:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://zymi.it/privacy-policy</loc>
     <lastmod>2026-11-11T00:00:00Z</lastmod>
     <changefreq>yearly</changefreq>

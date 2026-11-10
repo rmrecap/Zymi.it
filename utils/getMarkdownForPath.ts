@@ -198,6 +198,56 @@ All tools are 100% free with no sign-in or installation required.
 - **Contact**: Data privacy inquiries directed to contact@zymi.it.
 `;
 
+    case "/shipping":
+      return `# Shipping & Delivery Policy | ZYMI Global
+
+> Global logistics, ocean freight, air express sampling, and instant digital delivery.
+
+## 1. Apparel Emporium B2B Garment Freight
+- **Terms**: FOB Chittagong / Dhaka (standard) or CIF destination port.
+- **Ocean Freight**: 20ft/40ft container shipping (25-35 days Europe, 30-45 days North America).
+- **Air Freight**: Fast express sampling and rush shipments (3-7 business days via DHL/FedEx).
+- **Production Lead Times**: 25-45 days following tech pack approval and LC/TT deposit.
+- **Documents**: B/L, AWB, Commercial Invoice, Packing List, Certificate of Origin, GSP Form A.
+
+## 2. Digital Assets & Software Delivery
+- **Fee**: $0 (Instant electronic delivery).
+- **Method**: Immediate download link and email voucher token generation upon checkout.
+
+## 3. Amazon Affiliate Physical Goods
+- Fulfilled via Amazon Prime (1-2 day delivery in eligible areas) and third-party logistics.
+`;
+
+    case "/returns":
+      return `# Return & Refund Policy | ZYMI Global
+
+> Buyer protection, B2B manufacturing quality guarantees, and digital warranty.
+
+## 1. Apparel Emporium B2B Manufacturing
+- **AQL 2.5 Standard**: Rigorous pre-shipment inspections for major/minor defects.
+- **Third-Party Audits**: SGS, Intertek, Bureau Veritas pre-shipment inspections welcome.
+- **Defect Claims**: 14 calendar days from destination port clearance with photographic evidence.
+- **Remediation**: Immediate re-production, proforma credit adjustments, or contract remedy.
+
+## 2. Prototype Sampling Credit
+- $50 flat sampling fee is 100% credited toward bulk production invoice upon order placement.
+
+## 3. Digital Asset 7-Day Warranty
+- 100% free re-invite / replacement within 24 hours if account access fails within warranty period.
+
+## 4. Amazon Affiliate Purchases
+- Covered under Amazon's standard 30-day return policy directly via Amazon order history.
+`;
+
+    case "/wishlist":
+      return `# My Wishlist | ZYMI Global
+
+> Saved apparel prototypes, fashion selections, and digital tools.
+
+- **Access**: Saved items synchronize with your registered user profile.
+- **Shop**: Browse our catalog at https://zymi.it/shop to add favorites.
+`;
+
     default:
       // Generic Markdown for dynamic routes (e.g. /product/[slug], /blog/[slug], /shop)
       return `# ZYMI Global - ${cleanPath.replace(/^\//, "").toUpperCase()}

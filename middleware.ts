@@ -7,6 +7,15 @@ export default withAuth(
   function middleware(req) {
     const pathname = req.nextUrl.pathname;
 
+    // 0. Immediate pass-through for Next.js internal React Server Component (RSC) & prefetch requests
+    if (
+      req.nextUrl.searchParams.has("_rsc") ||
+      req.headers.get("rsc") === "1" ||
+      req.headers.get("next-router-prefetch") === "1"
+    ) {
+      return NextResponse.next();
+    }
+
     // 1. Serve MCP Server Card (SEP-1649)
     if (
       pathname === "/.well-known/mcp/server-card.json" ||
@@ -43,7 +52,7 @@ export default withAuth(
       });
     }
 
-    // 2. Check for admin routes
+    // 3. Check for admin routes
     if (pathname.startsWith("/admin")) {
       if (req.nextauth.token?.role !== "admin") {
         return NextResponse.redirect(new URL("/", req.url));
@@ -55,6 +64,14 @@ export default withAuth(
   {
     callbacks: {
       authorized: ({ token, req }) => {
+        // Next.js RSC and prefetch requests should always be authorized through
+        if (
+          req.nextUrl.searchParams.has("_rsc") ||
+          req.headers.get("rsc") === "1" ||
+          req.headers.get("next-router-prefetch") === "1"
+        ) {
+          return true;
+        }
         // Admin routes require admin token
         if (req.nextUrl.pathname.startsWith("/admin")) {
           return !!token && token.role === "admin";

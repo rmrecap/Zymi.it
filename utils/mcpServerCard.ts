@@ -119,3 +119,4 @@ export const mcpServerCard = {
   },
   license: "MIT",
 };
+
