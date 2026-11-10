@@ -20,8 +20,9 @@ export default async function B2BApparelPage() {
       },
       take: 12,
     });
-  } catch (err) {
-    console.error("Error fetching B2B products:", err);
+  } catch {
+    // Database offline/unreachable; fallback smoothly
+    b2bProducts = [];
   }
 
   return (

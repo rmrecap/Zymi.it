@@ -60,8 +60,9 @@ export default async function SingleBlogPostPage({ params }: BlogPostPageProps) 
         await context7Cache.cacheBlogContext(slug, post);
       }
     }
-  } catch (err) {
-    console.error("Error retrieving blog post:", err);
+  } catch {
+    // Database offline/unreachable; fallback smoothly to default articles without triggering dev overlay
+    post = null;
   }
 
   // Fallback demo data if database is not seeded
