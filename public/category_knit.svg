@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="knitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#knitGrad)" rx="16"/>
+  <!-- T-Shirt Graphic Icon -->
+  <path d="M140 80 L170 100 Q200 115 230 100 L260 80 L290 120 L260 140 L250 125 L250 230 L150 230 L150 125 L140 140 L110 120 Z" fill="#f8fafc" opacity="0.9"/>
+  <text x="200" y="265" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">CIRCULAR KNITWEAR</text>
+  <text x="200" y="285" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Apparel Emporium Export Line</text>
+</svg>

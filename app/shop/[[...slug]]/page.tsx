@@ -7,6 +7,7 @@ import {
   Pagination,
   Products,
   SortBy,
+  ShopTabs,
 } from "@/components";
 import React from "react";
 import { sanitize } from "@/lib/sanitize";
@@ -28,24 +29,32 @@ const ShopPage = async ({ params, searchParams }: { params: Promise<{ slug?: str
   const awaitedSearchParams = await searchParams;
   
   return (
-    <div className="text-black bg-white">
-      <div className=" max-w-screen-2xl mx-auto px-10 max-sm:px-5">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#050a18] text-slate-900 dark:text-slate-100 transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-6">
         <Breadcrumb />
-        <div className="grid grid-cols-[200px_1fr] gap-x-10 max-md:grid-cols-1 max-md:gap-y-5">
-          <Filters />
+
+        {/* 5 Skills UI Filter Tabs */}
+        <ShopTabs />
+
+        <div className="grid grid-cols-[220px_1fr] gap-x-8 max-md:grid-cols-1 max-md:gap-y-6">
+          <div className="p-4 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm self-start">
+            <Filters />
+          </div>
           <div>
-            <div className="flex justify-between items-center max-lg:flex-col max-lg:gap-y-5">
-              <h2 className="text-2xl font-bold max-sm:text-xl max-[400px]:text-lg uppercase">
+            <div className="flex justify-between items-center max-lg:flex-col max-lg:gap-y-4 mb-4">
+              <h2 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase">
                 {awaitedParams?.slug && awaitedParams?.slug[0]?.length > 0
                   ? sanitize(improveCategoryText(awaitedParams?.slug[0]))
-                  : "All products"}
+                  : "All Collections"}
               </h2>
 
               <SortBy />
             </div>
-            <div className="divider"></div>
+            <div className="border-b border-slate-200 dark:border-slate-800 mb-6"></div>
             <Products params={awaitedParams} searchParams={awaitedSearchParams} />
-            <Pagination />
+            <div className="mt-8">
+              <Pagination />
+            </div>
           </div>
         </div>
       </div>

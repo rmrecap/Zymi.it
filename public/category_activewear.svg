@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="actGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#actGrad)" rx="16"/>
+  <!-- Hoodie/Activewear icon -->
+  <path d="M140 85 L175 105 L200 90 L225 105 L260 85 L290 125 L265 140 L250 120 L250 230 L150 230 L150 120 L135 140 L110 125 Z" fill="#a7f3d0" opacity="0.9"/>
+  <circle cx="200" cy="70" r="22" fill="#a7f3d0" opacity="0.9"/>
+  <text x="200" y="265" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">ACTIVEWEAR &amp; HOODIES</text>
+  <text x="200" y="285" font-family="system-ui, sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">4-Way Stretch Spandex &amp; French Terry</text>
+</svg>

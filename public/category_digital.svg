@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="digGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#311042"/>
+      <stop offset="100%" stop-color="#581c87"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#digGrad)" rx="16"/>
+  <!-- File / Tech pack icon -->
+  <rect x="150" y="70" width="100" height="140" rx="8" fill="#f3e8ff" opacity="0.9"/>
+  <line x1="165" y1="100" x2="220" y2="100" stroke="#7e22ce" stroke-width="4"/>
+  <line x1="165" y1="120" x2="235" y2="120" stroke="#7e22ce" stroke-width="4"/>
+  <line x1="165" y1="140" x2="210" y2="140" stroke="#7e22ce" stroke-width="4"/>
+  <circle cx="215" cy="180" r="16" fill="#a855f7"/>
+  <path d="M210 180 L215 185 L222 175" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+  <text x="200" y="265" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">TECH PACKS &amp; DIGITAL SPECS</text>
+  <text x="200" y="285" font-family="system-ui, sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Vector AI, Graded Specs &amp; PDF</text>
+</svg>

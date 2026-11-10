@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,6 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum ProductType {
+  B2B_GARMENT
+  DROPSHIP
+  AFFILIATE_AMAZON
+  DIGITAL_DOWNLOAD
+}
+
 model Product {
   id             String                   @id @default(uuid())
   slug           String                   @unique
@@ -20,7 +24,7 @@ model Product {
   mainImage      String
   price          Int                      @default(0)
   rating         Int                      @default(0)
-  description    String
+  description    String                   @db.Text
   manufacturer   String
   inStock        Int                      @default(1)
   categoryId     String
@@ -29,9 +33,37 @@ model Product {
   Wishlist       Wishlist[]
 
   merchantId     String
-  merchant       Merchant @relation(fields: [merchantId], references: [id])
+  merchant       Merchant                 @relation(fields: [merchantId], references: [id])
   // Back relation for bulk upload items
   bulkUploadItems bulk_upload_item[]      @relation("ProductBulkItems")
+
+  // === Hybrid Platform Fields ===
+  productType            ProductType      @default(DROPSHIP)
+  
+  // Apparel Emporium B2B / RMG Manufacturing fields
+  moq                    Int              @default(1)
+  leadTime               String?
+  fabricDetails          String?          @db.Text
+  customizationOptions   String?          @db.Text
+
+  // Amazon Affiliate fields
+  affiliateUrl           String?          @db.Text
+  asin                   String?
+  amazonDisclaimer       String?          @db.Text
+
+  // Digital Download Marketplace fields
+  downloadUrl            String?          @db.Text
+  fileSize               String?
+  digitalFormat          String?
+
+  // Dropshipping fields
+  supplierSku            String?
+  estimatedDelivery      String?
+
+  // Hybrid platform relations
+  leads                  B2BLead[]
+  digitalAssets          DigitalAsset[]
+  blogMentions           post_product[]
 }
 
 model Image {
@@ -125,6 +157,7 @@ model Notification {
   @@index([userId, type])
   @@index([createdAt])
 }
+
 model Merchant {
   id          String   @id @default(uuid())
   name        String
@@ -188,4 +221,90 @@ enum BulkUploadItemStatus {
   CREATED
   UPDATED
   ERROR
+}
+
+// === Automated Blog & SEO Engine Models ===
+
+model Post {
+  id              String         @id @default(uuid())
+  slug            String         @unique
+  title           String
+  content         String         @db.Text
+  excerpt         String?        @db.Text
+  coverImage      String?
+  author          String         @default("Editorial Team")
+  metaTitle       String?
+  metaDescription String?        @db.Text
+  canonicalUrl    String?
+  tags            String?        // Comma-separated tags
+  category        String?        @default("Industry Trends")
+  published       Boolean        @default(true)
+  readingTime     Int            @default(5)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  featuredProducts post_product[]
+
+  @@index([slug])
+  @@index([published])
+  @@index([createdAt])
+}
+
+model post_product {
+  id        String   @id @default(uuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, productId])
+}
+
+// === Apparel Emporium B2B Lead & RFQ Engine ===
+
+enum LeadStatus {
+  PENDING
+  REVIEWED
+  SAMPLE_REQUESTED
+  QUOTED
+  ACCEPTED
+  REJECTED
+}
+
+model B2BLead {
+  id               String      @id @default(uuid())
+  companyName      String
+  contactPerson    String
+  email            String
+  phone            String
+  country          String
+  targetQuantity   Int         @default(500)
+  targetPrice      String?
+  fabricPreference String?
+  specifications   String      @db.Text
+  sampleNeeded     Boolean     @default(false)
+  status           LeadStatus  @default(PENDING)
+  notes            String?     @db.Text
+  productId        String?
+  product          Product?    @relation(fields: [productId], references: [id], onDelete: SetNull)
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// === Digital Downloads & Subscription Assets ===
+
+model DigitalAsset {
+  id            String    @id @default(uuid())
+  productId     String
+  product       Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  fileName      String
+  fileUrl       String    @db.Text
+  fileSize      String
+  downloadLimit Int       @default(5)
+  accessKey     String    @unique @default(uuid())
+  createdAt     DateTime  @default(now())
 }

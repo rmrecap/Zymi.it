@@ -44,9 +44,9 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
   }
 
   return (
-    <div className="bg-white">
-      <div className="max-w-screen-2xl mx-auto">
-        <div className="flex justify-center gap-x-16 pt-10 max-lg:flex-col items-center gap-y-5 px-5">
+    <div className="bg-slate-50 dark:bg-[#050a18] text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex justify-center gap-x-12 pt-4 max-lg:flex-col items-center gap-y-6">
           <div>
             <Image
               src={product?.mainImage ? `/${product?.mainImage}` : "/product_placeholder.jpg"}

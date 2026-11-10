@@ -1,22 +1,10 @@
-// *********************
-// Role of the component: Topbar of the header
-// Name of the component: HeaderTop.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <HeaderTop />
-// Input parameters: no input parameters
-// Output: topbar with phone, email and login and register links
-// *********************
-
 "use client";
+
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import toast from "react-hot-toast";
-import { FaHeadphones } from "react-icons/fa6";
-import { FaRegEnvelope } from "react-icons/fa6";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaRegUser } from "react-icons/fa6";
+import { FaIndustry, FaRegEnvelope, FaRegUser, FaGlobe } from "react-icons/fa6";
 
 const HeaderTop = () => {
   const { data: session }: any = useSession();
@@ -24,45 +12,65 @@ const HeaderTop = () => {
   const handleLogout = () => {
     setTimeout(() => signOut(), 1000);
     toast.success("Logout successful!");
-  }
+  };
+
   return (
-    <div className="h-10 text-white bg-blue-500 max-lg:px-5 max-lg:h-16 max-[573px]:px-0">
-      <div className="flex justify-between h-full max-lg:flex-col max-lg:justify-center max-lg:items-center max-w-screen-2xl mx-auto px-12 max-[573px]:px-0">
-        <ul className="flex items-center h-full gap-x-5 max-[370px]:text-sm max-[370px]:gap-x-2">
-          <li className="flex items-center gap-x-2 font-semibold">
-            <FaHeadphones className="text-white" />
-            <span>+381 61 123 321</span>
-          </li>
-          <li className="flex items-center gap-x-2 font-semibold">
-            <FaRegEnvelope className="text-white text-xl" />
-            <span>test@email.com</span>
-          </li>
-        </ul>
-        <ul className="flex items-center gap-x-5 h-full max-[370px]:text-sm max-[370px]:gap-x-2 font-semibold">
-          {!session ? ( 
-          <>
-          <li className="flex items-center">
-            <Link href="/login" className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
-              <span>Login</span>
+    <div className="h-10 text-slate-200 bg-slate-950 text-xs border-b border-slate-800">
+      <div className="flex justify-between h-full items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-x-4">
+          <span className="flex items-center gap-1.5 font-medium text-amber-400">
+            <FaIndustry className="text-xs" />
+            <span className="hidden sm:inline">Apparel Emporium Export Hub:</span>
+            <a
+              href="https://aelbd.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:underline flex items-center gap-1 font-bold"
+            >
+              aelbd.net <FaGlobe className="text-[10px]" />
+            </a>
+          </span>
+          <span className="hidden md:flex items-center gap-1.5 text-slate-400">
+            <FaRegEnvelope className="text-xs" />
+            <span>export@aelbd.net</span>
+          </span>
+        </div>
+
+        <ul className="flex items-center gap-x-4 font-medium">
+          <li className="hidden lg:inline">
+            <Link href="/tools" className="text-slate-300 hover:text-white transition">
+              Free Textile Calculators
             </Link>
           </li>
-          <li className="flex items-center">
-            <Link href="/register" className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
-              <span>Register</span>
+          <li className="hidden lg:inline">
+            <Link href="/b2b-apparel" className="text-indigo-400 hover:text-indigo-300 transition font-bold">
+              B2B Factory RFQ
             </Link>
           </li>
-          </>
-          ) :  (<>
-          <span className="ml-10 text-base">{session.user?.email}</span>
-          <li className="flex items-center">
-            <button onClick={() => handleLogout()} className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
-              <span>Log out</span>
-            </button>
-          </li>
-          </>)}
+          {!session ? (
+            <>
+              <li>
+                <Link href="/login" className="flex items-center gap-1.5 text-slate-300 hover:text-white transition">
+                  <FaRegUser className="text-xs" />
+                  <span>Login</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/register" className="text-slate-300 hover:text-white transition">
+                  Register
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <span className="text-slate-300">{session.user?.email}</span>
+              <li>
+                <button onClick={handleLogout} className="text-rose-400 hover:text-rose-300 transition">
+                  Log out
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>

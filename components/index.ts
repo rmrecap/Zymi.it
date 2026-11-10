@@ -20,22 +20,16 @@ export { default as QuantityInput } from "./QuantityInput";
 export { default as UrgencyText } from "./UrgencyText";
 export { default as StockAvailabillity } from "./StockAvailabillity";
 export { default as ColorInput } from "./ColorInput";
-
 export { default as ProductTabs } from "./ProductTabs";
-
-
 export { default as CustomButton } from "./CustomButton";
 export { default as QuantityInputCart } from "./QuantityInputCart";
 export { default as AddToCartSingleProductBtn } from "./AddToCartSingleProductBtn";
 export { default as BuyNowSingleProductBtn } from "./BuyNowSingleProductBtn";
 export { default as SingleProductDynamicFields } from "./SingleProductDynamicFields";
 export { default as CartElement } from "./CartElement";
-
 export { default as SortBy } from "./SortBy";
-
 export { default as SectionTitle } from "./SectionTitle";
 export { default as HeartElement } from "./HeartElement";
-// export { default as AddToWishlistBtn } from "./AddToWishlistBtn";
 export { default as Hero } from "./Hero";
 export { default as IntroducingSection } from "./IntroducingSection";
 export { default as Heading } from "./Heading";
@@ -47,3 +41,24 @@ export { default as OrderItem } from "./OrderItem";
 export { default as NotificationBell } from "./NotificationBell";
 export { default as NotificationCard } from "./NotificationCard";
 export { default as BulkUploadHistory } from "./BulkUploadHistory";
+
+// New RMG & Hybrid Platform Components
+export { default as AdaptiveProductActions } from "./AdaptiveProductActions";
+export { default as B2BInquiryModal } from "./B2BInquiryModal";
+export { default as B2BFactoryCTA } from "./B2BFactoryCTA";
+export { default as ApparelEmporiumShowcase } from "./ApparelEmporiumShowcase";
+export { default as BlogProductRecommendation } from "./BlogProductRecommendation";
+export { default as AmazonProductCard } from "./AmazonProductCard";
+export { default as RecommendedProEquipment } from "./RecommendedProEquipment";
+
+// Visual Blueprint 3D Cyber / Glassmorphic Components
+export { default as Hero3DSection } from "./Hero3DSection";
+export { default as FeaturedDigitalProducts } from "./FeaturedDigitalProducts";
+export { default as SplitUtilityDealsSection } from "./SplitUtilityDealsSection";
+export { default as GlobalSourcingHub } from "./GlobalSourcingHub";
+export { default as BlogAndInfluencerStrip } from "./BlogAndInfluencerStrip";
+export { default as ThemeToggle } from "./ThemeToggle";
+export { default as UserProfileDropdown } from "./UserProfileDropdown";
+export { default as ShopTabs } from "./ShopTabs";
+
+

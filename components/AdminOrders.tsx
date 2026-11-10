@@ -84,7 +84,9 @@ const AdminOrders = () => {
                     <p>${order?.total}</p>
                   </td>
 
-                  <td>{ new Date(Date.parse(order?.dateTime)).toDateString() }</td>
+                  <td>
+                    {order?.dateTime ? new Date(order.dateTime).toDateString() : "N/A"}
+                  </td>
                   <th>
                     <Link
                       href={`/admin/orders/${order?.id}`}

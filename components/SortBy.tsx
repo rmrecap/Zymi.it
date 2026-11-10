@@ -17,12 +17,12 @@ const SortBy = () => {
   const { sortBy, changeSortBy } = useSortStore();
 
   return (
-    <div className="flex items-center gap-x-5 max-lg:flex-col max-lg:w-full max-lg:items-start">
-      <h3 className="text-xl">Sort by:</h3>
+    <div className="flex items-center gap-x-3 max-lg:flex-col max-lg:w-full max-lg:items-start">
+      <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300">Sort by:</h3>
       <select
         defaultValue={sortBy}
         onChange={(e) => changeSortBy(e.target.value)}
-        className="select border-gray-400 py-2 px-2 text-base border-2 select-bordered w-40 focus:outline-none outline-none max-lg:w-full bg-white"
+        className="select border-slate-300 dark:border-slate-700 py-1.5 px-3 text-xs sm:text-sm rounded-xl border select-bordered w-40 focus:outline-none outline-none max-lg:w-full bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200"
         name="sort"
       >
         <option value="defaultSort">Default</option>

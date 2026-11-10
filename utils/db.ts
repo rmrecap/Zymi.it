@@ -1,37 +1,30 @@
-import { PrismaClient } from "@prisma/client"; 
+import { PrismaClient } from "@prisma/client";
 
 const prismaClientSingleton = () => {
-    // Validate that DATABASE_URL is present
-    if (!process.env.DATABASE_URL) {
-        throw new Error('DATABASE_URL environment variable is required');
-    }
+  const databaseUrl = process.env.DATABASE_URL || "mysql://root:password@localhost:3306/zymi_db";
 
-    // Parse DATABASE_URL to check SSL configuration
-    const databaseUrl = process.env.DATABASE_URL;
+  try {
     const url = new URL(databaseUrl);
-    
-    // Log SSL configuration for debugging
     if (process.env.NODE_ENV === "development") {
-        console.log(` Database connection: ${url.protocol}//${url.hostname}:${url.port || '3306'}`);
-        console.log(`🔒 SSL Mode: ${url.searchParams.get('sslmode') || 'not specified'}`);
+      console.log(`Database target: ${url.protocol}//${url.hostname}:${url.port || '3306'}`);
     }
+  } catch {
+    // Graceful fallback for non-standard connection strings
+  }
 
-    return new PrismaClient({
-        // Add logging for debugging
-        log: process.env.NODE_ENV === "development" 
-            ? ['query', 'info', 'warn', 'error']
-            : ['error', 'warn'],
-    });
-}
+  return new PrismaClient({
+    log: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
+  });
+};
 
 type PrismaClientSingleton = ReturnType<typeof prismaClientSingleton>;
 
 const globalForPrisma = globalThis as unknown as {
-    prisma: PrismaClientSingleton | undefined;
-}
+  prisma: PrismaClientSingleton | undefined;
+};
 
 const prisma = globalForPrisma.prisma ?? prismaClientSingleton();
 
 export default prisma;
 
-if(process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;

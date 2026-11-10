@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="45" fill="#15803d" stroke="#4ade80" stroke-width="2"/>
+  <circle cx="50" cy="50" r="36" fill="#166534"/>
+  <path d="M50 30 C40 40 40 55 50 65 C60 55 60 40 50 30 Z" fill="#86efac"/>
+  <text x="50" y="52" fill="#ffffff" font-family="system-ui" font-weight="900" font-size="12" text-anchor="middle">GOTS</text>
+  <text x="50" y="75" fill="#bbf7d0" font-family="system-ui" font-weight="600" font-size="6" text-anchor="middle">ORGANIC</text>
+</svg>

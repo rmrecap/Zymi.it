@@ -270,6 +270,19 @@ const createProduct = asyncHandler(async (request, response) => {
     manufacturer,
     categoryId,
     inStock,
+    productType,
+    moq,
+    leadTime,
+    fabricDetails,
+    customizationOptions,
+    affiliateUrl,
+    asin,
+    amazonDisclaimer,
+    downloadUrl,
+    fileSize,
+    digitalFormat,
+    supplierSku,
+    estimatedDelivery,
   } = request.body;
 
   if (!title) {
@@ -285,7 +298,7 @@ const createProduct = asyncHandler(async (request, response) => {
     throw new AppError("Missing required field: slug", 400);
   }
 
-  if (!price) {
+  if (price === undefined || price === null) {
     throw new AppError("Missing required field: price", 400);
   }
 
@@ -301,10 +314,23 @@ const createProduct = asyncHandler(async (request, response) => {
       mainImage,
       price,
       rating: 5,
-      description,
-      manufacturer,
+      description: description || "",
+      manufacturer: manufacturer || "Apparel Emporium",
       categoryId,
-      inStock,
+      inStock: inStock !== undefined ? inStock : 1,
+      productType: productType || "DROPSHIP",
+      moq: moq !== undefined ? moq : 1,
+      leadTime,
+      fabricDetails,
+      customizationOptions,
+      affiliateUrl,
+      asin,
+      amazonDisclaimer,
+      downloadUrl,
+      fileSize,
+      digitalFormat,
+      supplierSku,
+      estimatedDelivery,
     },
   });
   return response.status(201).json(product);
@@ -324,6 +350,19 @@ const updateProduct = asyncHandler(async (request, response) => {
     manufacturer,
     categoryId,
     inStock,
+    productType,
+    moq,
+    leadTime,
+    fabricDetails,
+    customizationOptions,
+    affiliateUrl,
+    asin,
+    amazonDisclaimer,
+    downloadUrl,
+    fileSize,
+    digitalFormat,
+    supplierSku,
+    estimatedDelivery,
   } = request.body;
 
   // Basic validation
@@ -348,16 +387,29 @@ const updateProduct = asyncHandler(async (request, response) => {
       id,
     },
     data: {
-      merchantId: merchantId,
-      title: title,
-      mainImage: mainImage,
-      slug: slug,
-      price: price,
-      rating: rating,
-      description: description,
-      manufacturer: manufacturer,
-      categoryId: categoryId,
-      inStock: inStock,
+      merchantId: merchantId || existingProduct.merchantId,
+      title: title || existingProduct.title,
+      mainImage: mainImage || existingProduct.mainImage,
+      slug: slug || existingProduct.slug,
+      price: price !== undefined ? price : existingProduct.price,
+      rating: rating !== undefined ? rating : existingProduct.rating,
+      description: description !== undefined ? description : existingProduct.description,
+      manufacturer: manufacturer || existingProduct.manufacturer,
+      categoryId: categoryId || existingProduct.categoryId,
+      inStock: inStock !== undefined ? inStock : existingProduct.inStock,
+      productType: productType || existingProduct.productType,
+      moq: moq !== undefined ? moq : existingProduct.moq,
+      leadTime: leadTime !== undefined ? leadTime : existingProduct.leadTime,
+      fabricDetails: fabricDetails !== undefined ? fabricDetails : existingProduct.fabricDetails,
+      customizationOptions: customizationOptions !== undefined ? customizationOptions : existingProduct.customizationOptions,
+      affiliateUrl: affiliateUrl !== undefined ? affiliateUrl : existingProduct.affiliateUrl,
+      asin: asin !== undefined ? asin : existingProduct.asin,
+      amazonDisclaimer: amazonDisclaimer !== undefined ? amazonDisclaimer : existingProduct.amazonDisclaimer,
+      downloadUrl: downloadUrl !== undefined ? downloadUrl : existingProduct.downloadUrl,
+      fileSize: fileSize !== undefined ? fileSize : existingProduct.fileSize,
+      digitalFormat: digitalFormat !== undefined ? digitalFormat : existingProduct.digitalFormat,
+      supplierSku: supplierSku !== undefined ? supplierSku : existingProduct.supplierSku,
+      estimatedDelivery: estimatedDelivery !== undefined ? estimatedDelivery : existingProduct.estimatedDelivery,
     },
   });
 

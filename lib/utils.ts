@@ -1,254 +1,120 @@
 export const categoryMenuList = [
   {
     id: 1,
-    title: "Smart Phones",
-    src: "/smart phone icon.png",
-    href: "/shop/smart-phones"
+    title: "Circular Knitwear",
+    src: "/category_knit.svg",
+    href: "/shop/circular-knitwear",
   },
   {
     id: 2,
-    title: "Tablets",
-    src: "/tablet icon.png",
-    href: "/shop/tablets"
+    title: "Flat Knit Sweaters",
+    src: "/category_sweater.svg",
+    href: "/shop/flat-knit",
   },
   {
     id: 3,
-    title: "Mouses",
-    src: "/mouse icon.png",
-    href: "/shop/mouses"
+    title: "Denim & Chinos",
+    src: "/category_denim.svg",
+    href: "/shop/denim",
   },
   {
     id: 4,
-    title: "Cameras",
-    src: "/camera icon.png",
-    href: "/shop/cameras"
+    title: "Activewear & Hoodies",
+    src: "/category_activewear.svg",
+    href: "/shop/activewear",
   },
   {
     id: 5,
-    title: "Smart Watches",
-    src: "/smart watch.png",
-    href: "/shop/watches"
+    title: "Organic & Sustainable RMG",
+    src: "/category_sustainable.svg",
+    href: "/shop/sustainable",
   },
   {
     id: 6,
-    title: "Laptops",
-    src: "/laptop icon.png",
-    href: "/shop/laptops"
-  },
-  {
-    id: 7,
-    title: "PCs",
-    src: "/pc icon.png",
-    href: "/shop/computers"
-  },
-  {
-    id: 8,
-    title: "Printers",
-    src: "/printers icon.png",
-    href: "/shop/printers"
-  },
-  {
-    id: 9,
-    title: "Earbuds",
-    src: "/ear buds icon.png",
-    href: "/shop/earbuds"
-  },
-  {
-    id: 10,
-    title: "Head Phones",
-    src: "/headphone icon.png",
-    href: "/shop/headphones"
+    title: "Tech Packs & Digital Specs",
+    src: "/category_digital.svg",
+    href: "/shop/digital-specs",
   },
 ];
 
 export const incentives = [
   {
-    name: "Free Shipping",
+    name: "Factory-Direct Pricing",
     description:
-      "Our shipping is completely free and that is completely good for our customers.",
-    imageSrc: "/shipping icon.png",
+      "Competitive FOB/CIF manufacturing quotes directly from Apparel Emporium's audited facilities.",
+    imageSrc: "/factory_icon.svg",
   },
   {
-    name: "24/7 Customer Support",
+    name: "Audited Ethical Compliance",
     description:
-      "Our support is working all day and night to answer any question you have.",
-    imageSrc: "/support icon.png",
+      "BSCI, OEKO-TEX Standard 100, and WRAP compliant manufacturing standards.",
+    imageSrc: "/compliance_icon.svg",
   },
   {
-    name: "Fast Shopping Cart",
+    name: "Rapid Sample Turnaround",
     description:
-      "We have super fast shopping experience and you will enjoy it.",
-    imageSrc: "/fast shopping icon.png",
+      "Precision proto samples, lab dips, and fit approvals dispatched via global courier in 7-10 days.",
+    imageSrc: "/sample_icon.svg",
   },
 ];
 
 export const navigation = {
-  sale: [
-    { name: "Discounts", href: "#" },
-    { name: "News", href: "#" },
-    { name: "Register Discounts", href: "#" },
+  manufacturing: [
+    { name: "Apparel Emporium Hub", href: "/b2b-apparel" },
+    { name: "Circular Knitwear", href: "/shop/circular-knitwear" },
+    { name: "Denim & Woven", href: "/shop/denim" },
+    { name: "Custom Tech Packs", href: "/shop/digital-specs" },
+  ],
+  tools: [
+    { name: "Fabric Consumption Calculator", href: "/tools/fabric-consumption-calculator" },
+    { name: "GSM & Costing Estimator", href: "/tools/gsm-costing-estimator" },
+    { name: "Yarn Count Converter", href: "/tools/yarn-count-converter" },
+    { name: "All RMG Tools Hub", href: "/tools" },
+  ],
+  insights: [
+    { name: "RMG & Textile Blog", href: "/blog" },
+    { name: "Global Export Guide", href: "/blog" },
+    { name: "Sustainable Fashion Trends", href: "/blog" },
   ],
   about: [
-    { name: "About Singitronic", href: "#" },
-    { name: "Work With Us", href: "#" },
-    { name: "Company Profile", href: "#" },
-  ],
-  buy: [
-    { name: "Singitronic Loyalty Card", href: "#" },
-    { name: "Terms Of Use", href: "#" },
+    { name: "About Apparel Emporium", href: "https://aelbd.net" },
+    { name: "B2B RFQ Inquiry", href: "/b2b-apparel" },
     { name: "Privacy Policy", href: "#" },
-    { name: "Complaints", href: "#" },
-    { name: "Partners", href: "#" },
-  ],
-  help: [
-    { name: "Contact", href: "#" },
-    { name: "How to Buy at Singitronic", href: "#" },
-    { name: "FAQ", href: "#" },
+    { name: "Terms of Service", href: "#" },
   ],
 };
 
 export const isValidNameOrLastname = (input: string) => {
-  // Simple name or lastname regex format check
   const regex = /^[a-zA-Z\s]+$/;
   return regex.test(input);
 };
 
 export const isValidEmailAddressFormat = (input: string) => {
-  // simple email address format check
   const regex = /^\S+@\S+\.\S+$/;
   return regex.test(input);
 };
 
 export const isValidCardNumber = (input: string) => {
-  // Remove all non-digit characters
   const cleanedInput = input.replace(/[^0-9]/g, "");
-  
-  // Check if the cleaned input has valid length (13-19 digits)
   if (!/^\d{13,19}$/.test(cleanedInput)) {
     return false;
   }
-  
-  // Implement Luhn algorithm for credit card validation
   return luhnCheck(cleanedInput);
 };
 
-/**
- * Luhn algorithm implementation for credit card validation
- * @param cardNumber - The credit card number as a string
- * @returns boolean - true if the card number is valid according to Luhn algorithm
- */
 const luhnCheck = (cardNumber: string): boolean => {
   let sum = 0;
   let isEven = false;
-  
-  // Process digits from right to left
   for (let i = cardNumber.length - 1; i >= 0; i--) {
     let digit = parseInt(cardNumber[i], 10);
-    
     if (isEven) {
       digit *= 2;
       if (digit > 9) {
         digit -= 9;
       }
     }
-    
     sum += digit;
     isEven = !isEven;
   }
-  
   return sum % 10 === 0;
-};
-
-/**
- * Enhanced credit card validation with card type detection
- * @param input - The credit card number as a string
- * @returns object with validation result and card type
- */
-export const validateCreditCard = (input: string) => {
-  const cleanedInput = input.replace(/[^0-9]/g, "");
-  
-  // Basic length and format check
-  if (!/^\d{13,19}$/.test(cleanedInput)) {
-    return {
-      isValid: false,
-      cardType: 'unknown',
-      error: 'Invalid card number format'
-    };
-  }
-  
-  // Luhn algorithm check
-  if (!luhnCheck(cleanedInput)) {
-    return {
-      isValid: false,
-      cardType: 'unknown',
-      error: 'Invalid card number (Luhn check failed)'
-    };
-  }
-  
-  // Detect card type based on BIN (Bank Identification Number)
-  const cardType = detectCardType(cleanedInput);
-  
-  return {
-    isValid: true,
-    cardType,
-    error: null
-  };
-};
-
-/**
- * Detect credit card type based on BIN patterns
- * @param cardNumber - The credit card number as a string
- * @returns string - The detected card type
- */
-const detectCardType = (cardNumber: string): string => {
-  const firstDigit = cardNumber[0];
-  const firstTwoDigits = cardNumber.substring(0, 2);
-  const firstFourDigits = cardNumber.substring(0, 4);
-  const firstThreeDigits = cardNumber.substring(0, 3);
-  
-  // Visa: starts with 4
-  if (firstDigit === '4') {
-    return 'visa';
-  }
-  
-  // Mastercard: starts with 5 or 2
-  if (firstDigit === '5' || (firstTwoDigits >= '22' && firstTwoDigits <= '27')) {
-    return 'mastercard';
-  }
-  
-  // American Express: starts with 34 or 37
-  if (firstTwoDigits === '34' || firstTwoDigits === '37') {
-    return 'amex';
-  }
-  
-  // Discover: starts with 6011, 65, or 644-649
-  if (firstFourDigits === '6011' || firstTwoDigits === '65' || 
-      (firstThreeDigits >= '644' && firstThreeDigits <= '649')) {
-    return 'discover';
-  }
-  
-  // Diners Club: starts with 300-305, 36, or 38
-  if ((firstThreeDigits >= '300' && firstThreeDigits <= '305') || 
-      firstTwoDigits === '36' || firstTwoDigits === '38') {
-    return 'diners';
-  }
-  
-  // JCB: starts with 35
-  if (firstTwoDigits === '35') {
-    return 'jcb';
-  }
-  
-  return 'unknown';
-};
-
-export const isValidCreditCardExpirationDate = (input: string) => {
-  // simple expiration date format check
-  const regex = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
-  return regex.test(input);
-};
-
-export const isValidCreditCardCVVOrCVC = (input: string) => {
-  // simple CVV or CVC format check
-  const regex = /^[0-9]{3,4}$/;
-  return regex.test(input);
 };

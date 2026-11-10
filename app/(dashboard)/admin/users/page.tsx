@@ -20,7 +20,7 @@ const DashboardUsers = () => {
   }, []);
 
   return (
-    <div className="bg-white flex justify-start max-w-screen-2xl mx-auto h-full max-xl:flex-col max-xl:h-fit max-xl:gap-y-4">
+    <div className="bg-white flex justify-start max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full max-xl:flex-col max-xl:h-fit max-xl:gap-y-4">
       <DashboardSidebar />
       <div className="w-full">
         <h1 className="text-3xl font-semibold text-center mb-5">All users</h1>

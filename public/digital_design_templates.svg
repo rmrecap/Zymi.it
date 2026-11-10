@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradDesign" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e130c"/>
+      <stop offset="50%" stop-color="#2a0845"/>
+      <stop offset="100%" stop-color="#6441a5"/>
+    </linearGradient>
+    <linearGradient id="popGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0844"/>
+      <stop offset="100%" stop-color="#ffb199"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" rx="16" fill="url(#bgGradDesign)"/>
+  <g transform="translate(150, 160)">
+    <ellipse cx="0" cy="70" rx="90" ry="25" fill="#ff0844" opacity="0.2"/>
+    <polygon points="0,-80 75,-40 0,0 -75,-40" fill="#4a154b" stroke="#ffb199" stroke-width="1.5"/>
+    <polygon points="0,0 75,-40 75,55 0,95" fill="#2d0c2e" stroke="#ffb199" stroke-width="1.5"/>
+    <polygon points="-75,-40 0,0 0,95 -75,55" fill="#1b0826" stroke="#ff0844" stroke-width="1.5"/>
+    <!-- Swatch Cards on Left Face -->
+    <rect x="-60" y="-10" width="48" height="60" rx="4" fill="url(#popGrad)" opacity="0.9" transform="rotate(-6 -36 20)"/>
+    <text x="-36" y="24" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="900" font-size="11" text-anchor="middle">DESIGN</text>
+    <text x="-36" y="38" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="600" font-size="7" text-anchor="middle">TEMPLATES</text>
+  </g>
+</svg>

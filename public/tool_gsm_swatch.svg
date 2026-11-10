@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="100%" height="100%">
+  <defs>
+    <linearGradient id="swatchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="150" rx="12" fill="#0b1329"/>
+  <!-- Isometric Fabric Layers -->
+  <g transform="translate(100, 65)">
+    <!-- Layer 3 (Bottom) -->
+    <polygon points="0,-15 50,10 0,35 -50,10" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1.5" transform="translate(0, 30)"/>
+    <!-- Layer 2 (Middle) -->
+    <polygon points="0,-15 50,10 0,35 -50,10" fill="#2563eb" stroke="#60a5fa" stroke-width="1.5" transform="translate(0, 15)"/>
+    <!-- Layer 1 (Top Swatch) -->
+    <polygon points="0,-15 50,10 0,35 -50,10" fill="url(#swatchGrad)" stroke="#93c5fd" stroke-width="2"/>
+    <text x="0" y="14" fill="#0b1329" font-family="system-ui, sans-serif" font-weight="900" font-size="12" text-anchor="middle">GSM SPEC</text>
+  </g>
+</svg>

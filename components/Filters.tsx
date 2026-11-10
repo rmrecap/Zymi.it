@@ -37,8 +37,14 @@ const Filters = () => {
   });
   const { sortBy } = useSortStore();
 
+  const searchParams = useSearchParams();
+  const currentType = searchParams.get("type");
+
   useEffect(() => {
     const params = new URLSearchParams();
+    if (currentType) {
+      params.set("type", currentType);
+    }
     // setting URL params and after that putting them all in URL
     params.set("outOfStock", inputCategory.outOfStock.isChecked.toString());
     params.set("inStock", inputCategory.inStock.isChecked.toString());
@@ -46,8 +52,8 @@ const Filters = () => {
     params.set("price", inputCategory.priceFilter.value.toString());
     params.set("sort", sortBy);
     params.set("page", page.toString());
-    replace(`${pathname}?${params}`);
-  }, [inputCategory, sortBy, page]);
+    replace(`${pathname}?${params.toString()}`);
+  }, [inputCategory, sortBy, page, currentType]);
 
   return (
     <div>
@@ -71,7 +77,7 @@ const Filters = () => {
               }
               className="checkbox"
             />
-            <span className="label-text text-lg ml-2 text-black">In stock</span>
+            <span className="label-text text-sm sm:text-base ml-2 text-slate-800 dark:text-slate-200 font-medium">In stock</span>
           </label>
         </div>
 
@@ -91,7 +97,7 @@ const Filters = () => {
               }
               className="checkbox"
             />
-            <span className="label-text text-lg ml-2 text-black">
+            <span className="label-text text-sm sm:text-base ml-2 text-slate-800 dark:text-slate-200 font-medium">
               Out of stock
             </span>
           </label>

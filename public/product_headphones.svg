@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d3748"/>
+      <stop offset="100%" stop-color="#1a202c"/>
+    </linearGradient>
+    <linearGradient id="cuffGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a5568"/>
+      <stop offset="100%" stop-color="#171923"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="200" rx="12" fill="#090d16"/>
+  <g transform="translate(150, 105)">
+    <!-- Headband Arch -->
+    <path d="M-65,30 C-65,-60 65,-60 65,30" fill="none" stroke="url(#hpGrad)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M-65,25 C-65,-55 65,-55 65,25" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.6"/>
+    <!-- Left Earcup -->
+    <g transform="translate(-65, 30)">
+      <ellipse cx="0" cy="0" rx="20" ry="32" fill="url(#cuffGrad)" stroke="#4a5568" stroke-width="2"/>
+      <ellipse cx="-4" cy="0" rx="12" ry="24" fill="#171923"/>
+      <circle cx="-4" cy="0" r="5" fill="#00f2fe" opacity="0.7"/>
+    </g>
+    <!-- Right Earcup -->
+    <g transform="translate(65, 30)">
+      <ellipse cx="0" cy="0" rx="20" ry="32" fill="url(#cuffGrad)" stroke="#4a5568" stroke-width="2"/>
+      <ellipse cx="4" cy="0" rx="12" ry="24" fill="#171923"/>
+      <circle cx="4" cy="0" r="5" fill="#00f2fe" opacity="0.7"/>
+    </g>
+  </g>
+</svg>

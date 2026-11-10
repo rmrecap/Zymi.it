@@ -1,13 +1,3 @@
-// *********************
-// Role of the component: Category Item that will display category icon, category name and link to the category
-// Name of the component: CategoryItem.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <CategoryItem title={title} href={href} ><Image /></CategoryItem>
-// Input parameters: CategoryItemProps interface
-// Output: Category icon, category name and link to the category
-// *********************
-
 import Link from "next/link";
 import React, { type ReactNode } from "react";
 
@@ -19,11 +9,14 @@ interface CategoryItemProps {
 
 const CategoryItem = ({ title, children, href }: CategoryItemProps) => {
   return (
-    <Link href={href}>
-      <div className="flex flex-col items-center gap-y-2 cursor-pointer bg-white py-5 text-black hover:bg-gray-100">
-        {children}
-
-        <h3 className="font-semibold text-xl">{title}</h3>
+    <Link href={href} className="group">
+      <div className="flex flex-col items-center justify-center gap-y-3 cursor-pointer bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-indigo-500 rounded-2xl py-6 px-4 text-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-0.5 text-center h-full">
+        <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-700/80 group-hover:scale-105 transition-transform">
+          {children}
+        </div>
+        <h3 className="font-bold text-sm tracking-wide text-slate-100 group-hover:text-indigo-400 transition-colors">
+          {title}
+        </h3>
       </div>
     </Link>
   );

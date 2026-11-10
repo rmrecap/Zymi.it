@@ -13,7 +13,19 @@ export const apiClient = {
       },
     };
     
-    return fetch(url, { ...defaultOptions, ...options });
+    try {
+      const response = await fetch(url, { ...defaultOptions, ...options });
+      return response;
+    } catch (networkError: any) {
+      // Graceful fallback when backend Express server is not running or unreachable
+      return {
+        ok: false,
+        status: 503,
+        statusText: networkError?.message || "Backend server unreachable",
+        json: async () => [],
+        text: async () => "",
+      } as unknown as Response;
+    }
   },
   
   // Convenience methods

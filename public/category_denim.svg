@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="denimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#172554"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#denimGrad)" rx="16"/>
+  <!-- Jeans icon -->
+  <path d="M150 70 L250 70 L255 120 L245 235 L205 235 L200 135 L195 235 L155 235 L145 120 Z" fill="#93c5fd" opacity="0.9"/>
+  <text x="200" y="265" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">DENIM &amp; CHINOS</text>
+  <text x="200" y="285" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Ozone &amp; Laser Wash Technology</text>
+</svg>

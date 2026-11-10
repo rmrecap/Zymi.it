@@ -4,6 +4,7 @@ import { isValidEmailAddressFormat } from "@/lib/utils";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { sanitizeFormData } from "@/lib/form-sanitize";
+import apiClient from "@/lib/api";
 
 const DashboardCreateNewUser = () => {
   const [userInput, setUserInput] = useState<{
@@ -36,29 +37,22 @@ const DashboardCreateNewUser = () => {
       }
 
       if (userInput.password.length > 7) {
-        const requestOptions: any = {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(sanitizedUserInput),
-        };
-        ap(`/api/users`, requestOptions)
-          .then((response) => {
+        apiClient.post(`/api/users`, sanitizedUserInput)
+          .then((response: Response) => {
             if(response.status === 201){
               return response.json();
-
-            }else{
-              
+            } else {
               throw Error("Error while creating user");
             }
           })
-          .then((data) => {
+          .then((data: any) => {
             toast.success("User added successfully");
             setUserInput({
               email: "",
               password: "",
               role: "user",
             });
-          }).catch(error => {
+          }).catch((error: any) => {
             toast.error("Error while creating user");
           });
       } else {
@@ -70,7 +64,7 @@ const DashboardCreateNewUser = () => {
   };
 
   return (
-    <div className="bg-white flex justify-start max-w-screen-2xl mx-auto xl:h-full max-xl:flex-col max-xl:gap-y-5">
+    <div className="bg-white flex justify-start max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:h-full max-xl:flex-col max-xl:gap-y-5">
       <DashboardSidebar />
       <div className="flex flex-col gap-y-7 xl:pl-5 max-xl:px-5 w-full">
         <h1 className="text-3xl font-semibold">Add new user</h1>

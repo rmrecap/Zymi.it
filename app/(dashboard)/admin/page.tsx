@@ -5,7 +5,7 @@ import { FaArrowUp } from "react-icons/fa6";
 
 const AdminDashboardPage = () => {
   return (
-    <div className="bg-white flex justify-start max-w-screen-2xl mx-auto max-xl:flex-col">
+    <div className="bg-white flex justify-start max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-xl:flex-col">
       <DashboardSidebar />
       <div className="flex flex-col items-center ml-5 gap-y-4 w-full max-xl:ml-0 max-xl:px-2 max-xl:mt-5 max-md:gap-y-1">
         <div className="flex justify-between w-full max-md:flex-col max-md:w-full max-md:gap-y-1">

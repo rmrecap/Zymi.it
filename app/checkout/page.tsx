@@ -346,7 +346,7 @@ const CheckoutPage = () => {
       <div className="hidden h-full w-1/2 bg-white lg:block" aria-hidden="true" />
       <div className="hidden h-full w-1/2 bg-gray-50 lg:block" aria-hidden="true" />
 
-      <main className="relative mx-auto grid max-w-screen-2xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
+      <main className="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-12 lg:grid-cols-2 px-4 sm:px-6 lg:px-8 xl:gap-x-24">
         <h1 className="sr-only">Order information</h1>
 
         {/* Order Summary */}

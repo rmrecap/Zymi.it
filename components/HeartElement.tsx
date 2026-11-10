@@ -1,27 +1,22 @@
-// *********************
-// Role of the component: Wishlist icon with quantity located in the header
-// Name of the component: HeartElement.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <HeartElement />
-// Input parameters: no input parameters
-// Output: wishlist icon with quantity
-// *********************
-
 "use client";
-import { useWishlistStore } from "@/app/_zustand/wishlistStore";
 import Link from "next/link";
 import React from "react";
 import { FaHeart } from "react-icons/fa6";
 
-const HeartElement = ({wishQuantity}: {wishQuantity: number}) => {
+const HeartElement = ({ wishQuantity }: { wishQuantity: number }) => {
   return (
-    <div className="relative">
-      <Link href="/wishlist">
-        <FaHeart className="text-2xl text-black" />
-        <span className="block w-6 h-6 font-bold bg-blue-600 text-white rounded-full flex justify-center items-center absolute top-[-17px] right-[-22px]">
-          { wishQuantity }
-        </span>
+    <div className="relative inline-flex items-center">
+      <Link
+        href="/wishlist"
+        className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/60 text-rose-400 hover:text-rose-300 transition-all duration-200 flex items-center justify-center shadow-xs"
+        aria-label="Wishlist"
+      >
+        <FaHeart className="text-lg" />
+        {wishQuantity > 0 && (
+          <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-[11px] rounded-full flex justify-center items-center shadow-sm shadow-rose-500/50">
+            {wishQuantity}
+          </span>
+        )}
       </Link>
     </div>
   );

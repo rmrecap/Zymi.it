@@ -1,40 +1,50 @@
-// *********************
-// Role of the component: Incentives on home page like Free Shipping, 24/7 Customer Support, Fast Shopping Cart...
-// Name of the component: Incentives.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <Incentives />
-// Input parameters: no input parameters
-// Output: Incentives section
-// *********************
-
-import { incentives } from '@/lib/utils'
-import Image from 'next/image'
-import React from 'react'
+import { incentives } from "@/lib/utils";
+import Image from "next/image";
+import React from "react";
 
 const Incentives = () => {
   return (
-    <div>
-      <h2 className='text-3xl text-center py-5'>Best Customer Benefits</h2>
-    <div className="mx-auto max-w-screen-2xl py-10 sm:px-2 lg:px-4">
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 px-4 lg:max-w-none lg:grid-cols-3">
-        {incentives.map((incentive) => (
-          <div key={incentive.name} className="text-center sm:flex sm:text-left lg:block lg:text-center">
-            <div className="sm:flex-shrink-0">
-              <div className="flow-root">
-                <Image width={48} height={48} className="mx-auto" src={incentive.imageSrc} alt={incentive.name} />
-              </div>
-            </div>
-            <div className="mt-3 sm:ml-3 sm:mt-0 lg:ml-0 lg:mt-3">
-              <h3 className="text-sm font-medium text-gray-900">{incentive.name}</h3>
-              <p className="mt-2 text-sm text-gray-500">{incentive.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-  )
-}
+    <section className="py-16 bg-white border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full uppercase tracking-wider">
+            Factory Advantages
+          </span>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2">
+            Why International Brands Partner With Us
+          </h2>
+          <p className="text-xs md:text-sm text-slate-500 mt-1">
+            Certified manufacturing standards, transparent costing, and dedicated export merchandising.
+          </p>
+        </div>
 
-export default Incentives
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {incentives.map((incentive) => (
+            <div
+              key={incentive.name}
+              className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 text-center hover:shadow-md transition-shadow"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 p-3 bg-white rounded-2xl border border-slate-200 shadow-2xs flex items-center justify-center">
+                <Image
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                  src={incentive.imageSrc}
+                  alt={incentive.name}
+                />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 mb-2">
+                {incentive.name}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {incentive.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Incentives;

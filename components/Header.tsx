@@ -1,134 +1,188 @@
-// *********************
-// Role of the component: Header component
-// Name of the component: Header.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <Header />
-// Input parameters: no input parameters
-// Output: Header component
-// *********************
-
 "use client";
-import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import HeaderTop from "./HeaderTop";
-import Image from "next/image";
-import SearchInput from "./SearchInput";
-import Link from "next/link";
-import { FaBell } from "react-icons/fa6";
 
+import { usePathname } from "next/navigation";
+import React, { useState } from "react";
+import Link from "next/link";
 import CartElement from "./CartElement";
-import NotificationBell from "./NotificationBell";
 import HeartElement from "./HeartElement";
-import { signOut, useSession } from "next-auth/react";
+import SearchInput from "./SearchInput";
+import ThemeToggle from "./ThemeToggle";
+import UserProfileDropdown from "./UserProfileDropdown";
+import { signOut } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useWishlistStore } from "@/app/_zustand/wishlistStore";
-import apiClient from "@/lib/api";
+import {
+  FaBars,
+  FaXmark,
+  FaChevronDown,
+} from "react-icons/fa6";
 
 const Header = () => {
-  const { data: session, status } = useSession();
   const pathname = usePathname();
-  const { wishlist, setWishlist, wishQuantity } = useWishlistStore();
+  const { wishQuantity } = useWishlistStore();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
     setTimeout(() => signOut(), 1000);
     toast.success("Logout successful!");
   };
 
-  // getting all wishlist items by user id
-  const getWishlistByUserId = async (id: string) => {
-    const response = await apiClient.get(`/api/wishlist/${id}`, {
-      cache: "no-store",
-    });
-    const wishlist = await response.json();
-    const productArray: {
-      id: string;
-      title: string;
-      price: number;
-      image: string;
-      slug:string
-      stockAvailabillity: number;
-    }[] = [];
+  // Categories list matching visual blueprint & updated psychological re-branding
+  const menuPills = [
+    { name: "Home", href: "/", active: pathname === "/" },
+    {
+      name: "Digital Assets",
+      href: "/shop?type=DIGITAL_DOWNLOAD",
+      active: pathname.startsWith("/shop") && pathname.includes("DIGITAL"),
+    },
+    {
+      name: "Curated Pro Gear",
+      href: "/shop?type=AFFILIATE_AMAZON",
+      active: pathname.includes("AFFILIATE"),
+    },
+    {
+      name: "Direct Global Store",
+      href: "/shop?type=DROPSHIP",
+      active: pathname.includes("DROPSHIP"),
+    },
+    {
+      name: "Apparel Emporium (Sourcing)",
+      href: "/b2b-apparel",
+      active: pathname === "/b2b-apparel",
+    },
+    {
+      name: "Blog & Magazine",
+      href: "/blog",
+      active: pathname.startsWith("/blog"),
+    },
+    {
+      name: "Free Tools",
+      href: "/tools",
+      active: pathname.startsWith("/tools"),
+    },
+  ];
 
-    return; // temporary disable wishlist fetching while the issue is being resolved
-    
-    wishlist.map((item: any) => productArray.push({id: item?.product?.id, title: item?.product?.title, price: item?.product?.price, image: item?.product?.mainImage, slug: item?.product?.slug, stockAvailabillity: item?.product?.inStock}));
-    
-    setWishlist(productArray);
-  };
-
-  // getting user by email so I can get his user id
-  const getUserByEmail = async () => {
-    if (session?.user?.email) {
-      
-      apiClient.get(`/api/users/email/${session?.user?.email}`, {
-        cache: "no-store",
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          getWishlistByUserId(data?.id);
-        });
-    }
-  };
-
-  useEffect(() => {
-    getUserByEmail();
-  }, [session?.user?.email, wishlist.length]);
-
-  return (
-    <header className="bg-white">
-      <HeaderTop />
-      {pathname.startsWith("/admin") === false && (
-        <div className="h-32 bg-white flex items-center justify-between px-16 max-[1320px]:px-16 max-md:px-6 max-lg:flex-col max-lg:gap-y-7 max-lg:justify-center max-lg:h-60 max-w-screen-2xl mx-auto">
-          <Link href="/">
-            <img src="/logo v1 svg.svg" width={300} height={300} alt="singitronic logo" className="relative right-5 max-[1023px]:w-56" />
+  if (pathname.startsWith("/admin")) {
+    return (
+      <header className="bg-slate-900 border-b border-slate-800 text-slate-100 sticky top-0 z-50">
+        <div className="flex justify-between h-16 items-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-base shadow-sm shadow-cyan-500/50">
+              Z
+            </span>
+            <span className="text-lg font-black tracking-tight text-white">
+              ZYMI <span className="text-cyan-400">Admin</span>
+            </span>
           </Link>
-          <SearchInput />
-          <div className="flex gap-x-10 items-center">
-            <NotificationBell />
-            <HeartElement wishQuantity={wishQuantity} />
-            <CartElement />
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Link
+              href="/"
+              className="text-xs text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 transition"
+            >
+              Back to Store
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="px-3 py-1.5 text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition"
+            >
+              Logout
+            </button>
           </div>
         </div>
-      )}
-      {pathname.startsWith("/admin") === true && (
-        <div className="flex justify-between h-32 bg-white items-center px-16 max-[1320px]:px-10  max-w-screen-2xl mx-auto max-[400px]:px-5">
-          <Link href="/">
-            <Image
-              src="/logo v1.png"
-              width={130}
-              height={130}
-              alt="singitronic logo"
-              className="w-56 h-auto"
-            />
-          </Link>
-          <div className="flex gap-x-5 items-center">
-            <NotificationBell />
-            <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="w-10">
-                <Image
-                  src="/randomuser.jpg"
-                  alt="random profile photo"
-                  width={30}
-                  height={30}
-                  className="w-full h-full rounded-full"
-                />
-              </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <Link href="/admin">Dashboard</Link>
-                </li>
-                <li>
-                  <a>Profile</a>
-                </li>
-                <li onClick={handleLogout}>
-                  <a href="#">Logout</a>
-                </li>
-              </ul>
+      </header>
+    );
+  }
+
+  return (
+    <header className="sticky top-0 z-50 bg-white/85 dark:bg-[#050a18]/85 backdrop-blur-xl border-b border-slate-200 dark:border-cyan-500/10 transition-colors duration-200">
+      {/* Main Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        {/* Brand Logo & Tagline */}
+        <div className="flex items-center gap-3 shrink-0">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-200">
+              <span className="font-black text-slate-950 text-xl tracking-tighter">
+                Z
+              </span>
             </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-black text-slate-900 dark:text-white tracking-tight leading-tight flex items-center gap-1">
+                ZYMI <span className="text-cyan-500 dark:text-cyan-400">Global</span>
+              </span>
+              <span className="text-[10px] font-medium text-slate-500 dark:text-slate-400 tracking-wider">
+                Explore • Shop • Learn • Grow
+              </span>
+            </div>
+          </Link>
+        </div>
+
+        {/* Center Menu Pills (Desktop) */}
+        <nav className="hidden xl:flex items-center gap-0.5 bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 rounded-full px-2 py-1 shadow-md dark:shadow-xl dark:shadow-black/40">
+          {menuPills.map((pill) => (
+            <Link
+              key={pill.name}
+              href={pill.href}
+              className={`px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full text-[11px] 2xl:text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
+                pill.active
+                  ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white dark:text-slate-950 font-black shadow-md shadow-cyan-500/30"
+                  : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/80"
+              }`}
+            >
+              <span>{pill.name}</span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* Right Controls */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
+          {/* Quick Search */}
+          <div className="hidden md:block w-36 lg:w-44">
+            <SearchInput />
+          </div>
+
+          {/* Theme Toggle Button (Light / Dark) */}
+          <ThemeToggle />
+
+          {/* Wishlist & Cart */}
+          <HeartElement wishQuantity={wishQuantity} />
+          <CartElement />
+
+          {/* User Profile Dropdown (Skills UI + NextAuth) */}
+          <UserProfileDropdown />
+
+          {/* Mobile menu toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="xl:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <FaXmark /> : <FaBars />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer Navigation */}
+      {mobileMenuOpen && (
+        <div className="xl:hidden bg-slate-50 dark:bg-[#091124] border-b border-slate-200 dark:border-slate-800 px-6 py-5 space-y-3">
+          <div className="pb-3 border-b border-slate-200 dark:border-slate-800">
+            <SearchInput />
+          </div>
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {menuPills.map((pill) => (
+              <Link
+                key={pill.name}
+                href={pill.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`px-3 py-2 rounded-lg text-xs font-medium transition ${
+                  pill.active
+                    ? "bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 font-bold border border-cyan-500/30"
+                    : "text-slate-700 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white"
+                }`}
+              >
+                {pill.name}
+              </Link>
+            ))}
           </div>
         </div>
       )}

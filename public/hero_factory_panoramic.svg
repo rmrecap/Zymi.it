@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="facSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#172a45"/>
+    </linearGradient>
+    <linearGradient id="facBldg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="240" fill="url(#facSky)"/>
+  <!-- Modern Facility Structure -->
+  <polygon points="40,200 40,90 220,60 460,90 460,200" fill="url(#facBldg)" stroke="#00f2fe" stroke-width="1.5"/>
+  <!-- Glass Panels -->
+  <g fill="#0284c7" opacity="0.7">
+    <rect x="70" y="105" width="25" height="18" rx="2"/>
+    <rect x="110" y="100" width="25" height="18" rx="2"/>
+    <rect x="150" y="95" width="25" height="18" rx="2"/>
+    <rect x="190" y="90" width="25" height="18" rx="2"/>
+    <rect x="230" y="90" width="25" height="18" rx="2"/>
+    <rect x="270" y="95" width="25" height="18" rx="2"/>
+    <rect x="310" y="100" width="25" height="18" rx="2"/>
+    <rect x="350" y="105" width="25" height="18" rx="2"/>
+    <rect x="390" y="110" width="25" height="18" rx="2"/>
+    <!-- Row 2 -->
+    <rect x="70" y="135" width="25" height="18" rx="2"/>
+    <rect x="110" y="135" width="25" height="18" rx="2"/>
+    <rect x="150" y="135" width="25" height="18" rx="2"/>
+    <rect x="190" y="135" width="25" height="18" rx="2"/>
+    <rect x="230" y="135" width="25" height="18" rx="2"/>
+    <rect x="270" y="135" width="25" height="18" rx="2"/>
+    <rect x="310" y="135" width="25" height="18" rx="2"/>
+    <rect x="350" y="135" width="25" height="18" rx="2"/>
+    <rect x="390" y="135" width="25" height="18" rx="2"/>
+  </g>
+  <!-- Solar Panels Roof Array -->
+  <polygon points="60,86 220,58 440,86 420,75 220,50 80,75" fill="#0369a1" stroke="#38bdf8" stroke-width="1"/>
+  <!-- Entrance Canopy -->
+  <polygon points="180,200 180,165 300,165 300,200" fill="#0f172a" stroke="#00f2fe" stroke-width="1"/>
+  <text x="240" y="155" fill="#38ef7d" font-family="system-ui, sans-serif" font-weight="900" font-size="11" text-anchor="middle" letter-spacing="1">APPAREL EMPORIUM</text>
+  <text x="240" y="185" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="700" font-size="9" text-anchor="middle">LEED PLATINUM FACILITY</text>
+  <!-- Landscaping Base -->
+  <rect x="0" y="200" width="500" height="40" fill="#064e3b"/>
+</svg>
