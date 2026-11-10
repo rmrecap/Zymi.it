@@ -36,17 +36,17 @@ const Header = () => {
       active: pathname.startsWith("/shop") && pathname.includes("DIGITAL"),
     },
     {
-      name: "Curated Pro Gear",
+      name: "Curated Gear",
       href: "/shop?type=AFFILIATE_AMAZON",
       active: pathname.includes("AFFILIATE"),
     },
     {
-      name: "Direct Global Store",
+      name: "Global Store",
       href: "/shop?type=DROPSHIP",
       active: pathname.includes("DROPSHIP"),
     },
     {
-      name: "Apparel Emporium (Sourcing)",
+      name: "Apparel Emporium",
       href: "/b2b-apparel",
       active: pathname === "/b2b-apparel",
     },
@@ -97,7 +97,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-white/85 dark:bg-[#050a18]/85 backdrop-blur-xl border-b border-slate-200 dark:border-cyan-500/10 transition-colors duration-200">
       {/* Main Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-3">
         {/* Brand Logo & Tagline */}
         <div className="flex items-center gap-3 shrink-0">
           <Link href="/" className="flex items-center gap-2.5 group">

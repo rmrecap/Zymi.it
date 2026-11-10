@@ -21,78 +21,78 @@ import {
 export default function Hero3DSection() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
 
-  // 7 Quick Launchpad Categories with updated psychological re-branding
+  // 7 Quick Launchpad Categories with compact, high-impact titles matching the reference blueprint
   const categories = [
     {
-      title: "Digital Assets & Tech Packs",
+      title: "Digital Assets",
       href: "/shop?type=DIGITAL_DOWNLOAD",
-      icon: <FaBoxesStacked className="text-xl text-blue-500 dark:text-blue-400" />,
+      icon: <FaBoxesStacked className="text-lg text-blue-500 dark:text-blue-400" />,
       glowColor: "hover:border-blue-500/60 hover:shadow-blue-500/20",
       badgeColor: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
     },
     {
-      title: "Curated Pro Gear",
+      title: "Curated Gear",
       href: "/shop?type=AFFILIATE_AMAZON",
-      icon: <FaChartLine className="text-xl text-amber-500 dark:text-amber-400" />,
+      icon: <FaChartLine className="text-lg text-amber-500 dark:text-amber-400" />,
       glowColor: "hover:border-amber-500/60 hover:shadow-amber-500/20",
       badgeColor: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
     },
     {
-      title: "Direct Global Store",
+      title: "Direct Store",
       href: "/shop?type=DROPSHIP",
-      icon: <FaCartShopping className="text-xl text-emerald-500 dark:text-emerald-400" />,
+      icon: <FaCartShopping className="text-lg text-emerald-500 dark:text-emerald-400" />,
       glowColor: "hover:border-emerald-500/60 hover:shadow-emerald-500/20",
       badgeColor: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
     },
     {
-      title: "Apparel Emporium (Global Sourcing Hub)",
+      title: "Apparel Emporium",
       href: "/b2b-apparel",
-      icon: <FaShirt className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: <FaShirt className="text-lg text-cyan-600 dark:text-cyan-400" />,
       glowColor: "hover:border-cyan-500/60 hover:shadow-cyan-500/20",
       badgeColor: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border-cyan-500/20",
     },
     {
-      title: "Insights & Magazine",
+      title: "Blog & Insights",
       href: "/blog",
-      icon: <FaPenNib className="text-xl text-purple-500 dark:text-purple-400" />,
+      icon: <FaPenNib className="text-lg text-purple-500 dark:text-purple-400" />,
       glowColor: "hover:border-purple-500/60 hover:shadow-purple-500/20",
       badgeColor: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
     },
     {
       title: "Free RMG Tools",
       href: "/tools",
-      icon: <FaWrench className="text-xl text-sky-500 dark:text-sky-400" />,
+      icon: <FaWrench className="text-lg text-sky-500 dark:text-sky-400" />,
       glowColor: "hover:border-sky-500/60 hover:shadow-sky-500/20",
       badgeColor: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20",
     },
     {
-      title: "Global Sourcing Hub",
+      title: "Global Sourcing",
       href: "/b2b-apparel",
-      icon: <FaGlobe className="text-xl text-teal-500 dark:text-teal-400" />,
+      icon: <FaGlobe className="text-lg text-teal-500 dark:text-teal-400" />,
       glowColor: "hover:border-teal-500/60 hover:shadow-teal-500/20",
       badgeColor: "bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-500/20",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-14 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden pt-4 pb-8 px-4 sm:px-6 lg:px-8">
       {/* Background Ambient Glows */}
       <div className="absolute top-10 left-1/4 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-20 right-1/4 w-[32rem] h-[32rem] bg-blue-600/10 dark:bg-blue-600/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Top Split: Text on Left, 3D Devices & Hologram on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2 pb-8">
           {/* Left Hero Content */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-7 space-y-5 text-left">
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/90 border border-cyan-500/30 shadow-md shadow-cyan-500/10 text-xs font-bold text-cyan-700 dark:text-cyan-300">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900/90 border border-cyan-500/30 shadow-md shadow-cyan-500/10 text-xs font-bold text-cyan-700 dark:text-cyan-300">
               <span className="w-2 h-2 rounded-full bg-cyan-500 animate-ping" />
               <span>Your Global Business Hub</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.08]">
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
               Discover. Shop.{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400 glow-cyan">
                 Grow.
@@ -100,16 +100,16 @@ export default function Hero3DSection() {
             </h1>
 
             {/* Sub-heading */}
-            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base md:text-lg max-w-xl font-normal leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
               Digital Assets, Curated Pro Gear, Global Sourcing, Expert Guides
               and More — All in One Place!
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-slate-950 hover:from-cyan-300 hover:to-blue-500 shadow-lg shadow-cyan-500/25 transition-all duration-200 active:scale-95 group"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-slate-950 hover:from-cyan-300 hover:to-blue-500 shadow-lg shadow-cyan-500/25 transition-all duration-200 active:scale-95 group"
               >
                 <span>Explore All Categories</span>
                 <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" />
@@ -118,9 +118,9 @@ export default function Hero3DSection() {
               <button
                 type="button"
                 onClick={() => setVideoModalOpen(true)}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full text-sm font-bold bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white border border-slate-200 dark:border-slate-700/80 hover:border-cyan-500/50 shadow-md transition-all active:scale-95 group cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white border border-slate-200 dark:border-slate-700/80 hover:border-cyan-500/50 shadow-md transition-all active:scale-95 group cursor-pointer"
               >
-                <span className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-[10px] group-hover:scale-110 transition-transform">
+                <span className="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-[9px] group-hover:scale-110 transition-transform">
                   <FaPlay />
                 </span>
                 <span>Watch Video</span>
@@ -184,20 +184,20 @@ export default function Hero3DSection() {
         </div>
 
         {/* Bottom Category Launchpad: 7 Glassmorphic Cards */}
-        <div className="mt-2 pt-6 border-t border-slate-200 dark:border-slate-800/80">
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
+        <div className="mt-1 pt-5 border-t border-slate-200 dark:border-slate-800/80">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 sm:gap-3">
             {categories.map((cat, idx) => (
               <Link
                 key={idx}
                 href={cat.href}
-                className={`group flex flex-col items-center justify-center p-4 rounded-2xl bg-white dark:bg-slate-900/70 backdrop-blur-md border border-slate-200 dark:border-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-850/90 transition-all duration-300 shadow-md dark:shadow-lg hover:-translate-y-1.5 text-center ${cat.glowColor}`}
+                className={`group flex flex-col items-center justify-center p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900/70 backdrop-blur-md border border-slate-200 dark:border-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-850/90 transition-all duration-300 shadow-sm dark:shadow-md hover:-translate-y-1 text-center ${cat.glowColor}`}
               >
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-2.5 transition-transform group-hover:scale-110 border ${cat.badgeColor}`}
+                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 transition-transform group-hover:scale-110 border ${cat.badgeColor}`}
                 >
                   {cat.icon}
                 </div>
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-200 group-hover:text-cyan-600 dark:group-hover:text-white leading-tight">
+                <span className="text-[11px] sm:text-xs font-bold text-slate-700 dark:text-slate-200 group-hover:text-cyan-600 dark:group-hover:text-white leading-tight truncate w-full">
                   {cat.title}
                 </span>
               </Link>
