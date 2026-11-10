@@ -58,8 +58,12 @@ export const metadata: Metadata = {
     "amazon creators affiliate",
   ],
   authors: [{ name: "Apparel Emporium & ZYMI Engineering Team" }],
+  verification: {
+    google: "ZCdfrYcpZJN5c_i85N8IamTsP2pkNv4mSQYnw4V9jNg",
+  },
   other: {
     "content-signal": "search=yes, ai-train=no",
+    "google-site-verification": "ZCdfrYcpZJN5c_i85N8IamTsP2pkNv4mSQYnw4V9jNg",
   },
 };
 
@@ -151,6 +155,8 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="ZCdfrYcpZJN5c_i85N8IamTsP2pkNv4mSQYnw4V9jNg" />
         {/* Preconnect & DNS-Prefetch for External Product Images */}
         <link rel="preconnect" href="https://m.media-amazon.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://m.media-amazon.com" />

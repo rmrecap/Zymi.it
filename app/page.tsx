@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  verification: {
+    google: "ZCdfrYcpZJN5c_i85N8IamTsP2pkNv4mSQYnw4V9jNg",
+  },
+  other: {
+    "google-site-verification": "ZCdfrYcpZJN5c_i85N8IamTsP2pkNv4mSQYnw4V9jNg",
+  },
 };
 
 export default function Home() {

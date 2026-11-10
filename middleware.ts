@@ -92,6 +92,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - metadata static files (favicon.ico, sitemap.xml, robots.txt, llms.txt, llms-full.txt)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llms.txt|llms-full.txt).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llms.txt|llms-full.txt|google.*\\.html).*)",
   ],
 };
