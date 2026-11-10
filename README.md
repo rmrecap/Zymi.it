@@ -115,17 +115,24 @@ npx prisma db push
 npx prisma generate
 ```
 
-### 5. Create an Admin Account
+### 5. Secure Admin Gateway & Command Center
 
-Run the built-in CLI utility to generate your admin credentials:
+For military-grade defense against unauthorized bot discovery, the administration console is protected behind the **ZYMI Security Shield Gate**:
+
+- **Stealth / Protected Route:** `/zymi-admin-gate?key=zymi2026admin`
+- **Default Master Admin Email:** `admin@zymi.it`
+- **Default Master Admin Password:** `ZymiMaster2026@Secure`
+- **Security Gate Key:** `zymi2026admin` (Configurable via `ADMIN_SECRET_GATE_KEY`)
+
+Direct `/admin` traffic from unauthenticated visitors is automatically deflected to the public storefront with zero admin footprint.
+
+To create or promote custom database admin users:
 
 ```bash
-node server/createAdminUser.js admin@zymi.it Admin@123
-```
+# Create new admin user in database
+node server/createAdminUser.js admin@zymi.it YourStrongPassword!
 
-To promote an existing registered user to admin:
-
-```bash
+# Promote an existing registered user to admin
 node server/makeUserAdmin.js your_email@example.com
 ```
 

@@ -14,6 +14,7 @@ import { FaSquarePinterest } from "react-icons/fa6";
 import { sanitize } from "@/lib/sanitize";
 import prisma from "@/utils/db";
 import { getLiveCanbosoProducts } from "@/lib/canboso-api";
+import { getAmazonProductBySlugOrAsin } from "@/lib/amazon-top-products";
 
 interface ImageItem {
   imageID: string;
@@ -91,6 +92,34 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
     }
   }
 
+  // 4. Fallback: Check Amazon Top-Demand & Automated ASIN Catalog
+  if (!product || product.error) {
+    try {
+      const amzProduct = getAmazonProductBySlugOrAsin(paramsAwaited?.productSlug);
+      if (amzProduct) {
+        product = {
+          id: amzProduct.id,
+          title: amzProduct.title,
+          price: amzProduct.price,
+          originalPrice: amzProduct.originalPrice,
+          rating: amzProduct.rating,
+          description: amzProduct.features.join(" • "),
+          mainImage: amzProduct.mainImage,
+          slug: amzProduct.slug,
+          manufacturer: amzProduct.manufacturer,
+          inStock: amzProduct.inStock,
+          productType: "AFFILIATE_AMAZON",
+          asin: amzProduct.asin,
+          affiliateUrl: amzProduct.affiliateUrl,
+          badge: amzProduct.badge,
+          category: amzProduct.category,
+        };
+      }
+    } catch {
+      // Ignore
+    }
+  }
+
   // 4. Try fetching images
   try {
     const imagesData = await apiClient.get(
@@ -133,13 +162,13 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
             </div>
           </div>
           <div className="flex flex-col gap-y-7 text-black max-[500px]:text-center">
-        
+
             <h1 className="text-3xl">{sanitize(product?.title)}</h1>
             <p className="text-xl font-semibold">${product?.price}</p>
             <StockAvailabillity stock={94} inStock={product?.inStock} />
             <SingleProductDynamicFields product={product} />
             <div className="flex flex-col gap-y-2 max-[500px]:items-center">
-             
+
               <p className="text-lg">
                 SKU: <span className="ml-1">abccd-18</span>
               </p>

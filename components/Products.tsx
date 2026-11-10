@@ -3,6 +3,7 @@ import ProductItem from "./ProductItem";
 import apiClient from "@/lib/api";
 import prisma from "@/utils/db";
 import { getLiveCanbosoProducts } from "@/lib/canboso-api";
+import { TOP_AMAZON_PRODUCTS } from "@/lib/amazon-top-products";
 
 const DEFAULT_FALLBACK_PRODUCTS = [
   {
@@ -124,14 +125,11 @@ const Products = async ({
   try {
     // 1. Try fetching via API client (if Express is running on port 3001)
     const data = await apiClient.get(
-      `/api/products?filters[price][$lte]=${
-        searchParams?.price || 3000
-      }&filters[rating][$gte]=${
-        Number(searchParams?.rating) || 0
-      }&filters[inStock][$${stockMode}]=1&${
-        params?.slug && params.slug.length > 0
-          ? `filters[category][$equals]=${params.slug[0]}&`
-          : ""
+      `/api/products?filters[price][$lte]=${searchParams?.price || 3000
+      }&filters[rating][$gte]=${Number(searchParams?.rating) || 0
+      }&filters[inStock][$${stockMode}]=1&${params?.slug && params.slug.length > 0
+        ? `filters[category][$equals]=${params.slug[0]}&`
+        : ""
       }sort=${searchParams?.sort || "defaultSort"}&page=${page}`
     );
 
@@ -191,19 +189,24 @@ const Products = async ({
     products = DEFAULT_FALLBACK_PRODUCTS;
   }
 
-  // 5. Integrate Live Canboso digital products into collection
+  // 5. Integrate Live Canboso digital products & Curated Amazon Best Sellers into collection
   if (typeFilter === "DIGITAL_DOWNLOAD") {
     if (liveDigitalProducts.length > 0) {
       products = liveDigitalProducts;
     } else {
       products = DEFAULT_FALLBACK_PRODUCTS.filter((p) => p.productType === "DIGITAL_DOWNLOAD");
     }
+  } else if (typeFilter === "AFFILIATE_AMAZON") {
+    // Seamlessly deliver high-demand, top-searched Amazon products
+    products = TOP_AMAZON_PRODUCTS;
   } else if (!typeFilter) {
-    // For 'All Collections', merge top live digital products with physical catalog
-    const topDigital = liveDigitalProducts.slice(0, 12);
-    products = [...products.filter((p: any) => p.productType !== "DIGITAL_DOWNLOAD"), ...topDigital];
+    // For 'All Collections', merge top live digital products & Amazon top items with catalog
+    const topDigital = liveDigitalProducts.slice(0, 8);
+    const topAmazon = TOP_AMAZON_PRODUCTS.slice(0, 6);
+    const baseItems = products.filter((p: any) => p.productType !== "DIGITAL_DOWNLOAD" && p.productType !== "AFFILIATE_AMAZON");
+    products = [...baseItems, ...topAmazon, ...topDigital];
   } else {
-    // Other specific filters (e.g. AFFILIATE_AMAZON, DROPSHIP, B2B_GARMENT)
+    // Other specific filters (e.g. DROPSHIP, B2B_GARMENT)
     const filtered = products.filter((p: any) => p.productType === typeFilter);
     if (filtered.length > 0) {
       products = filtered;
