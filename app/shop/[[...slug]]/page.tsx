@@ -37,9 +37,46 @@ const ShopPage = async ({ params, searchParams }: { params: Promise<{ slug?: str
   // Await both params and searchParams
   const awaitedParams = await params;
   const awaitedSearchParams = await searchParams;
+
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "ZYMI Commercial & Apparel Collections",
+    url: "https://zymi.it/shop",
+    description:
+      "Browse verified RMG apparel, industrial machinery, and digital design templates at ZYMI Global.",
+    mainEntity: {
+      "@type": "ItemList",
+      name: "Shop Catalog Items",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          url: "https://zymi.it/product/singer-heavy-duty-4452-sewing-machine",
+          name: "SINGER Heavy Duty 4452 Sewing Machine",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          url: "https://zymi.it/product/google-ai-pro-slot-5tb",
+          name: "Google AI Pro Slot + 5TB Cloud Storage",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          url: "https://zymi.it/product/carhartt-heavyweight-hooded-sweatshirt",
+          name: "Carhartt Men's Heavyweight Hooded Sweatshirt",
+        },
+      ],
+    },
+  };
   
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#050a18] text-slate-900 dark:text-slate-100 transition-colors duration-200">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-6">
         <Breadcrumb />
 

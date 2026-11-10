@@ -150,6 +150,37 @@ export default function Home() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is ZYMI Global's relationship with Apparel Emporium?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "ZYMI Global is the official international technology hub and B2B digital export gateway for Apparel Emporium (aelbd.net), a certified ready-made garment (RMG) manufacturer based in Bangladesh.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How does the B2B garment manufacturing sourcing work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Global apparel brands can submit RFQs directly through ZYMI Global for OEKO-TEX, BSCI, and GOTS-certified knitwear, denim, and woven garments with flexible MOQs and direct factory pricing.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Are the digital products delivered instantly?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, all digital downloads including AI prompt packs, tech pack CAD files, and design templates are delivered instantly upon checkout.",
+        },
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-[#050a18] text-slate-900 dark:text-slate-100 selection:bg-cyan-500 selection:text-slate-950 pb-16 transition-colors duration-200">
       {/* 1. Explicit Organization JSON-LD Block */}
@@ -168,6 +199,12 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+
+      {/* 4. FAQPage JSON-LD Block */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* 1. 3D Hero Section & 7-Item Category Launchpad */}

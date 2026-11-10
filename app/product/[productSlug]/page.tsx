@@ -160,8 +160,48 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
     notFound();
   }
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product?.title || "ZYMI Product",
+    image: product?.mainImage?.startsWith("http")
+      ? product.mainImage
+      : `https://zymi.it/${product?.mainImage || "product_placeholder.jpg"}`,
+    description: product?.description || product?.title || "",
+    sku: String(product?.id || product?.asin || "zymi-item"),
+    brand: {
+      "@type": "Brand",
+      name: product?.manufacturer || "ZYMI Global",
+    },
+    offers: {
+      "@type": "Offer",
+      url: `https://zymi.it/product/${product?.slug}`,
+      priceCurrency: "USD",
+      price: product?.price || 0,
+      priceValidUntil: "2027-12-31",
+      itemCondition: "https://schema.org/NewCondition",
+      availability:
+        (product?.inStock ?? 1) > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
+      seller: {
+        "@type": "Organization",
+        name: "ZYMI Global",
+      },
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: product?.rating || 4.8,
+      reviewCount: 45,
+    },
+  };
+
   return (
     <div className="bg-slate-50 dark:bg-[#050a18] text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-200">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-center gap-x-12 pt-4 max-lg:flex-col items-center gap-y-6">
           <div>

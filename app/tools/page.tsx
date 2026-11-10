@@ -15,6 +15,26 @@ export const metadata: Metadata = {
 };
 
 export default function ToolsHubPage() {
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "ZYMI Textile & RMG Engineering Suite",
+    url: "https://zymi.it/tools",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "All modern web browsers",
+    description:
+      "Suite of free textile engineering tools: Knit Fabric Consumption, GSM & Costing Estimator, and Universal Yarn Count Converter.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    creator: {
+      "@type": "Organization",
+      name: "Apparel Emporium & ZYMI Engineering Team",
+    },
+  };
+
   const tools = [
     {
       title: "Knit Fabric Consumption Calculator",
@@ -47,6 +67,10 @@ export default function ToolsHubPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <div className="max-w-5xl mx-auto px-6">
         {/* Hub Title Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
