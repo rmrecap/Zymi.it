@@ -1,0 +1,46 @@
+# ZYMI Global & Apparel Emporium (RMG Hub) - Complete Machine Context
+
+> Complete machine-readable reference for AI agents, LLM researchers, and automated crawlers detailing ZYMI Global (https://zymi.it) and its parent manufacturing partner Apparel Emporium (aelbd.net).
+
+## Platform Summary
+ZYMI Global is a multi-vertical hybrid technology and manufacturing gateway based in Dhaka, Bangladesh. It operates four primary business pillars:
+1. Direct Ready-Made Garment (RMG) B2B Export Manufacturing in partnership with Apparel Emporium.
+2. Free Textile Engineering & Merchandising Calculators (Fabric consumption, GSM yield, Yarn count conversions).
+3. Digital Creator Marketplace for Canva Pro, AI prompt bundles, and apparel tech pack CAD templates.
+4. Curated Commercial & Industrial Garment Machinery syndication.
+
+## Key URLs and Documentation
+- Primary Domain: https://zymi.it
+- Partner Domain: https://aelbd.net
+- Sourcing Inquiries: https://zymi.it/b2b-apparel
+- Transparent Pricing Matrix: https://zymi.it/pricing
+- Company History & Compliance: https://zymi.it/about
+- Corporate Support: https://zymi.it/contact
+- Privacy Policy: https://zymi.it/privacy-policy
+- Terms of Service: https://zymi.it/terms
+- XML Sitemap: https://zymi.it/sitemap.xml
+- Robots Directive: https://zymi.it/robots.txt
+
+## RMG Engineering Tools API & Logic
+- Fabric Consumption Calculator (https://zymi.it/tools/fabric-consumption-calculator):
+  Computes precise knit fabric requirement per dozen in kilograms:
+  `Formula: Consumption (Kg/Doz) = ((Length + Allowance) * (Half Chest + Allowance) * 2 * GSM * 12) / 10,000,000`
+- GSM Costing Estimator (https://zymi.it/tools/gsm-costing-estimator):
+  Computes linear yard yield and price per yard based on fabric width (inches) and GSM:
+  `Formula: Yield (yds/lb) = (16 * 1000) / (Width * GSM * 0.0232)`
+- Yarn Count Converter (https://zymi.it/tools/yarn-count-converter):
+  Converts between English Cotton Count (Ne), Metric Count (Nm), Tex (g/1000m), and Denier (g/9000m).
+
+## Factory Audits & Compliance
+Apparel Emporium production floors operate under strict environmental and labor standards:
+- OEKO-TEX Standard 100: Tested for toxic substances and harmful residues.
+- BSCI Code of Conduct: Social compliance, workplace healthcare, and fair living wage enforcement.
+- Sedex SMETA 4-Pillar: Labor, health & safety, environment, and business ethics.
+- GOTS (Global Organic Textile Standard): Organic certified cotton tracking from ginning to garment packaging.
+
+## Contact & Physical Identity
+- Organization: ZYMI Global & Apparel Emporium Hub
+- Email: contact@zymi.it
+- B2B Export Desk: export@aelbd.net
+- Telephone: +880-1700-000000
+- Address: House 12, Road 4, Sector 3, Uttara, Dhaka-1230, Bangladesh

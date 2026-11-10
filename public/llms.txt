@@ -1,0 +1,40 @@
+# ZYMI Global & Apparel Emporium (RMG Hub)
+
+> ZYMI Global (https://zymi.it) is an international hybrid commerce platform and official technology gateway for Apparel Emporium (aelbd.net), a certified ready-made garment (RMG) manufacturer based in Bangladesh with a monthly export capacity of 2.5M+ pieces. The platform unites factory-direct apparel sourcing, instant digital asset downloads, free textile engineering calculators, and curated commercial equipment.
+
+## Core Pages
+
+- [Homepage](https://zymi.it/): Main storefront, category launchpad, live digital product stocks, and sourcing hub.
+- [About Us](https://zymi.it/about): Company background, factory compliance certifications (OEKO-TEX Standard 100, BSCI, Sedex, GOTS), and partnership with Apparel Emporium.
+- [Pricing & Rates](https://zymi.it/pricing): Transparent pricing matrix across digital products ($0.80 - $9.99), B2B apparel manufacturing ($2.80 - $14.50/pc), and free textile calculators ($0).
+- [Contact Us](https://zymi.it/contact): Corporate headquarters, factory contact details in Uttara, Dhaka, email inquiry form, and WhatsApp hotline.
+- [B2B Apparel Sourcing](https://zymi.it/b2b-apparel): Factory profile, low-MOQ knitwear, heavyweight streetwear hoodies, denim manufacturing, and instant RFQ submission.
+- [Digital Assets & Store](https://zymi.it/shop?type=DIGITAL_DOWNLOAD): AI prompt packs, Canva Pro team links, and RMG CAD tech pack templates.
+- [Blog & Industry Guides](https://zymi.it/blog): Textile manufacturing guides, fabric GSM analysis, and apparel sourcing benchmarks.
+
+## Free RMG & Textile Engineering Tools
+
+- [Fabric Consumption Calculator](https://zymi.it/tools/fabric-consumption-calculator): Instant knit fabric consumption calculation per dozen garments for t-shirts, polos, and hoodies.
+- [GSM Costing Estimator](https://zymi.it/tools/gsm-costing-estimator): Fabric weight yield, yarn pricing, and fabric costing analysis for garment merchandisers.
+- [Yarn Count Converter](https://zymi.it/tools/yarn-count-converter): Multi-system yarn conversion across Ne, Nm, Tex, and Denier count systems.
+
+## B2B Manufacturing Specifications & Capabilities
+
+- [Apparel Emporium Official Website](https://aelbd.net): Parent manufacturing partner operating LEED Platinum compliant facilities in Gazipur and Dhaka, Bangladesh.
+- [Factory Certifications](https://zymi.it/about): Audited by OEKO-TEX Standard 100, BSCI Social Compliance, Sedex SMETA 4-Pillar, and Global Organic Textile Standard (GOTS).
+- [Export Garment Categories](https://zymi.it/pricing): 100% Combed Cotton T-Shirts, Heavyweight Streetwear Hoodies (350-450 GSM), Pique Polos, Denim Pants, and custom sampling.
+
+## Machine-Readable Endpoints & Policies
+
+- [Robots.txt](https://zymi.it/robots.txt): Crawler rules and content signal directives (`search=yes, ai-train=no`).
+- [Sitemap](https://zymi.it/sitemap.xml): XML index of all public URLs.
+- [Privacy Policy](https://zymi.it/privacy-policy): GDPR/CCPA data governance and Amazon Associates affiliate disclosures.
+- [Terms of Service](https://zymi.it/terms): Commercial licensing and B2B manufacturing terms under Bangladesh jurisdiction.
+
+## Corporate Contact & Channels
+
+- Email: contact@zymi.it
+- B2B Export Desk: export@aelbd.net
+- Phone: +880-1700-000000
+- Location: House 12, Road 4, Sector 3, Uttara, Dhaka-1230, Bangladesh
+- Operating Hours: Saturday - Thursday, 09:00 - 18:00 BST (UTC+6)

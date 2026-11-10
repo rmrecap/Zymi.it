@@ -18,6 +18,13 @@ Allow: /tools
 Allow: /tools/*
 Allow: /product/*
 Allow: /search
+Allow: /about
+Allow: /contact
+Allow: /pricing
+Allow: /privacy-policy
+Allow: /terms
+Allow: /llms.txt
+Allow: /llms-full.txt
 
 # Disallow private and administrative endpoints
 Disallow: /admin

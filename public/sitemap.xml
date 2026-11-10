@@ -61,6 +61,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://zymi.it/llms.txt</loc>
+    <lastmod>2026-11-11T00:00:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <!-- Free RMG & Textile Engineering Calculators -->
   <url>
